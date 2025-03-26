@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiper@11.1.9/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href=" {% static 'favicon.ico' %}" />
+    <title>ООО Центр развития «Золотой ключик» в городе Сургут</title>
+    <meta name="description" content="Центр развития 'Золотой ключик' для детей дошкольного возраста в городе Сургут. Доверьте заботу о своём малыше нам! А мы с любовью и заботой откроем перед ним мир знаний и возможностей! Развиваем потенциал детей уже более 20 лет! У нас каждый ребенок находит свое место, раскрывает свои таланты и развивает навыки для успешного старта в жизни.">
+    <meta name="keywords" content="Центр развития, детский сад, детский садик, дети, дошкольный возраст, образовательные программы, дет сад, Сургут">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://goldenkey86.ru/">
+    <meta property="og:title" content="ООО Центр развития 'Золотой ключик' в г.Сургут">
+    <meta property="og:description" content="Центр развития 'Золотой ключик' для детей дошкольного возраста в городе Сургут. Доверьте заботу о своём малыше нам! А мы с любовью и заботой откроем перед ним мир знаний и возможностей! Развиваем потенциал детей уже более 20 лет! У нас каждый ребенок находит свое место, раскрывает свои таланты и развивает навыки для успешного старта в жизни.">
+    <meta property="og:image" content="https://goldenkey86.ru/img/advantages1.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="wrapper">
+        <div class="header">
+          <a href="/">
+            <img src="{% static 'img/logo.svg' %}" alt="logo" class="logo" />
+          </a>
+          <nav class="nav">
+            <ul class="nav__items">
+              <li class="nav__item"><a href="/#filials">филиалы</a></li>
+              <li class="nav__item">
+                <a href="/#questions-list">вопросы</a>
+              </li>
+              <li class="nav__item"><a href="/#news">новости</a></li>
+              <li class="nav__item"><a href="/#reviews">отзывы</a></li>
+              <li class="nav__item"><a href="/about">документы</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    {% block content %}
+    {% endblock content %}
+
+    <footer class="footer-bg">
+      <div class="wrapper">
+        <div class="footer">
+          <div class="footer__info">
+            <div class="footer__logo">
+              <a href="/">
+                <img src="{% static 'img/logo-white.svg' %}" alt="logo-white" />
+              </a>
+            </div>
+            <p class="footer__info-text">ООО Центр развития "Золотой ключик"</p>
+            <address class="footer__info-text">
+              ул. Таёжная, д. 4/1, с.п. Солнечный,<br />Сургутский район,
+              ХМАО-Югра
+            </address>
+            <p class="footer__info-text">
+              тел.: <a href="tel:+73462555344">8(3462)555-344</a>
+            </p>
+            <p class="footer__info-text">
+              <a href="tel:+79224085379">8(922)408-53-79</a>
+            </p>
+          </div>
+          <div class="footer__nav">
+            <ul class="footer__nav-items">
+              <li class="footer__nav-item"><a href="/#filials">Филиалы</a></li>
+              <li class="footer__nav-item">
+                <a href="/#questions-list">Вопросы</a>
+              </li>
+              <li class="footer__nav-item"><a href="/#news">Новости</a></li>
+              <li class="footer__nav-item">
+                <a href="/#reviews">Отзывы</a>
+              </li>
+              <li class="footer__nav-item">
+                <a href="/about">Документы</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer__knowledge">
+            <h4 class="footer__knowledge-title">Сведения об организации</h4>
+            <ul class="footer__knowledge-items">
+              <li class="footer__knowledge-item">
+                <a href="/about#about">Общие сведения</a>
+              </li>
+              <li class="footer__knowledge-item">
+                <a href="/about#structure">Структура и органы управления</a>
+              </li>
+              <li class="footer__knowledge-item">
+                <a href="#">Центр ППМС помощи</a>
+              </li>
+              <li class="footer__knowledge-item">
+                <a href="/about#employees">Наши сотрудники</a>
+              </li>
+              <li class="footer__knowledge-item"><a href="/about#docs">Документы</a></li>
+              <li class="footer__knowledge-item">
+                <a href="/about#knowledge">Образование</a>
+              </li>
+              <li class="footer__knowledge-item">
+                <a href="/about#mth">Материально-техническое обеспечение</a>
+              </li>
+              <li class="footer__knowledge-item">
+                <a href="/about#fhd">Финансово-хозяйственная деятельность</a>
+              </li>
+              <li class="footer__knowledge-item">
+                <a href="/about#empty-space">Вакантные места для приема перевода</a>
+              </li>
+              <li class="footer__knowledge-item">
+                <a href="#">Доступная среда</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer__knowledge">
+            <h4 class="footer__knowledge-title">Сведения об организации</h4>
+            <ul class="footer__knowledge-items">
+              <li class="footer__knowledge-item">
+                <a href="#">Компенсация</a>
+              </li>
+              <li class="footer__knowledge-item">
+                <a href="#">Муниципальные услуги</a>
+              </li>
+              <li class="footer__knowledge-item">
+                <a href="/about#pay-know">Платные образовательные услуги</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    <script type="text/javascript">
+      const lightbox = GLightbox({
+        selector: '.glightbox'
+      });
+      const lightbox2 = GLightbox({
+        selector: '.glightbox2'
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.9/swiper-bundle.min.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/lightbox.js"></script>
+    <script src="js/videoplayer.js"></script>
+    <script src="js/activeHeader.js"></script>
+    <script>
+      document
+      .getElementById("questions__form")
+      .addEventListener("submit", function (event) {
+        let response = grecaptcha.getResponse();
+          if (response.length == 0) {
+            alert('Вы не прошли проверку CAPTCHA, попробуйте снова');
+            // TODO
+            // Красивый обработчик не пройденной капчи (отображать ошибку)
+            event.preventDefault();
+            return false;
+          }
+        });
+    </script>
+  </body>
+</html>
