@@ -1,13 +1,9 @@
 from django.shortcuts import render
-# from .models import Product
+from .models import MainBlock
 
 def index(request):
-    # products = Product.objects.all()
-    
     context = {
-        'products': ['Товар 1', 'Товар 2', 'Товар 3'],
-        'array': [1, 2, 3, 4],
-        # 'items': Product.objects.filter(name='server')
+        'mainBlock': MainBlock.objects.first()
     }
     return render(request, 'main/index.html', context)
 
