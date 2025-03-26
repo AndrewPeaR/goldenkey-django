@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 <main>
   <div class="wrapper">
@@ -19,23 +20,23 @@
     <div class="welcome-bg">
       <a href="#questions__form" class="welcome__phone">Обратный звонок</a>
       <div class="welcome">
-        <h2 class="welcome__title"><%= welcome[0].title %></h2>
-        <p class="welcome__description"><%= welcome[0].undertitle %></p>
+        <h2 class="welcome__title">{{ welcomeBlock.title }}</h2>
+        <p class="welcome__description">{{ welcomeBlock.undertitle }}</p>
         <p class="welcome__description">
-          <%= welcome[0].description %>
+          {{ welcomeBlock.description }}
         </p>
         <p class="welcome__call-to-action">
-          <%= welcome[0].callToAction %>
+          {{ welcomeBlock.callToAction }}
         </p>
         <div class="welcome__author">
           <div class="welcome__author-text">
-            <p class="welcome__author-title"><%= welcome[0].nameOfCEO %></p>
+            <p class="welcome__author-title">{{ welcomeBlock.nameOfCEO }}</p>
             <p class="welcome__author-description">
-              <%= welcome[0].CEO %>
+              {{ welcomeBlock.CEO }}
             </p>
           </div>
           <div class="welcome__author-sign">
-            <img src="./img/sign.png" alt="sign" />
+            <img src="{{ welcomeBlock.sign.url }}" alt="sign" />
           </div>
         </div>
       </div>
@@ -55,7 +56,7 @@
           присоединиться к нам и открыть для вашего ребенка новые возможности!
         </p>
       </div>
-      <img class="filials__icon" src="./img/test.png" alt="test" />
+      <img class="filials__icon" src="{% static 'img/test.png' %}" alt="test" />
     </div>
   </div>
 </section>
@@ -63,17 +64,17 @@
 <div>
   <div class="wrapper">
     <div class="advantages">
-      <% advantages.forEach(function(item){ %>
+      {% for advantage in advantages %}
       <div class="advantages__item">
-        <img src="/uploads/advantages/<%= item.advantagesImageUrl %>" alt="<%= item.advantagesImageUrl %>" />
+        <img src="{{ advantage.image.url }}" alt="{{ advantage.image }}" />
         <div class="advantages__description">
-          <h3 class="advantages__title"><%= item.title %></h3>
+          <h3 class="advantages__title">{{ advantage.title }}</h3>
           <p class="advantages__text">
-            <%= item.description %>
+            {{ advantage.description }}
           </p>
         </div>
       </div>
-      <% }) %>
+      {% endfor %}
     </div>
   </div>
 </div>

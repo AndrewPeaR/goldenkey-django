@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import FileExtensionValidator
 
 class MainBlock(models.Model):
     title = models.TextField()
@@ -12,13 +13,13 @@ class MainBlock(models.Model):
         return self.title
 
 class WelcomeBlock(models.Model):
-    title = models.TextField()
-    undertitle = models.TextField()
-    description = models.TextField()
-    callToAction = models.TextField()
-    nameOfCEO = models.TextField()
-    CEO = models.TextField()
-    sign = models.FileField(upload_to='uploads/WelcomeBlock')
+    title = models.TextField(verbose_name='Заголовок')
+    undertitle = models.TextField(verbose_name='Подзаголовок')
+    description = models.TextField(verbose_name='Описание')
+    callToAction = models.TextField(verbose_name='Призыв к действию')
+    nameOfCEO = models.TextField(verbose_name='ФИО Руководителя')
+    CEO = models.TextField(verbose_name='Должность')
+    sign = models.ImageField(upload_to='sign', verbose_name='Картинка подписи', validators=[FileExtensionValidator(allowed_extensions=('png', 'jpg', 'webp', 'jpeg', 'gif'))])
     
     class Meta:
         verbose_name_plural = "Приветственный блок"
@@ -67,6 +68,17 @@ class News(models.Model):
 
     class Meta:
         verbose_name_plural = "Последние новости"
+
+    def __str__(self):
+        return self.title
+
+class Advantages(models.Model):
+    title = models.TextField()
+    description = models.TextField()
+    image = models.ImageField(upload_to='advantages', verbose_name='Картинка преимущества', validators=[FileExtensionValidator(allowed_extensions=('png', 'jpg', 'webp', 'jpeg', 'gif'))])
+
+    class Meta:
+        verbose_name_plural = "Преимущества"
 
     def __str__(self):
         return self.title
