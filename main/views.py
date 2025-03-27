@@ -1,10 +1,22 @@
 from django.shortcuts import render
-from .forms import UserForm
+
+from .forms import UserForm, ReviewForm, checkCaptcha
 from .models import MainBlock, WelcomeBlock, Advantages, Performance, PerformanceItems, Memo, FAQ, News, Reviews
+
 
 def index(request):
     if request.method == 'POST':
-        pass
+        form = UserForm(request.POST)
+        if form.is_valid():
+            if checkCaptcha(request):
+                question = form.save(commit=False)
+                question.save()
+                # print("Passed and save form")
+            else:
+                print("Robot")
+        else:
+            print('Form invalid')
+            
     
     context = {
         'mainBlock': MainBlock.objects.first(),
@@ -16,7 +28,8 @@ def index(request):
         'faq': FAQ.objects.all(),
         'news': News.objects.all(),
         'reviews': Reviews.objects.filter(published = True),
-        'form': UserForm()
+        'form': UserForm(),
+        'reviewForm': ReviewForm()
     }
     return render(request, 'main/index.html', context)
 

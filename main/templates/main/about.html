@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 <section>
   <div class="wrapper">
@@ -78,43 +79,41 @@
           <li class="about__item">
             <ul class="about__docs-list">
               <li class="about__docs-item">
-                <a href="./docs/Основные сведения.pdf" target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Общие
+                <a href="{% static 'docs/Основные сведения.pdf' %}" target="_blank"
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Общие
                   сведения</a
                 >
               </li>
               <li class="about__docs-item">
-                <a href="./docs/Карточка предприятия.pdf" target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Карточка
+                <a href="{% static 'docs/Карточка предприятия.pdf' %}" target="_blank"
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Карточка
                   предприятия</a
                 >
               </li>
               <li class="about__docs-item">
-                <a href="./docs/Выписка ЕГРЮЛ.pdf.pdf" target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Выписка
+                <a href="{% static 'docs/Выписка ЕГРЮЛ.pdf' %}" target="_blank"
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Выписка
                   ЕГРЮЛ</a
                 >
               </li>
               <li class="about__docs-item">
-                <a href="./docs/ИНН.pdf" target="_blank"
-                  ><img src="./img/document.svg" alt="document" />ИНН</a
+                <a href="{% static 'docs/ИНН.pdf' %}" target="_blank"
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />ИНН</a
                 >
               </li>
               <li class="about__docs-item">
                 <a
-                  href="./docs/Материально-техническое обеспечение и оснащение.pdf"
-                  target="_blank"
+                  href="{% static 'docs/Материально-техническое обеспечение и оснащение.pdf' %}" target="_blank"
                   ><img
-                    src="./img/document.svg"
+                    src="{% static 'img/document.svg' %}"
                     alt="document"
                   />Материально-техническое обеспечение и оснащение</a
                 >
               </li>
               <li class="about__docs-item">
                 <a
-                  href="./docs/Отчет самообследования деятельности Центра развития.pdf"
-                  target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Отчет
+                  href="{% static 'docs/Отчет самообследования деятельности Центра развития.pdf' %}" target="_blank"
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Отчет
                   самообследования деятельности Центра развития</a
                 >
               </li>
@@ -143,46 +142,46 @@
             <h3 class="about__docs-title" style="margin-bottom: 15px">Коллегиальные органы управления</h3>
             <ul class="about__docs-list">
               <li class="about__docs-item">
-                <a href="./docs/Организационная структура.pdf" target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Структура и
+                <a href="{% static 'docs/Организационная структура.pdf' %}" target="_blank"
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Структура и
                   органы управления</a
                 >
               </li>
               <li class="about__docs-item">
                 <a
-                  href="./docs/Положение о совете родителей.pdf"
+                  href="{% static 'docs/Положение о совете родителей.pdf' %}"
                   target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Положение о
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Положение о
                   совете родителей</a
                 >
               </li>
               <li class="about__docs-item">
-                <a href="./docs/Положение об общем собрании.pdf" target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Положение об
+                <a href="{% static 'docs/Положение об общем собрании.pdf' %}" target="_blank"
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Положение об
                   общем собрании</a
                 >
               </li>
               <li class="about__docs-item">
                 <a
-                  href="./docs/Положение о педагогическом совете.pdf"
+                  href="{% static 'docs/Положение о педагогическом совете.pdf' %}"
                   target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Положение о
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Положение о
                   педагогическом совете</a
                 >
               </li>
               <li class="about__docs-item">
                 <a
-                  href="./docs/Положение об управляющем совете.pdf"
+                  href="{% static 'docs/Положение об управляющем совете.pdf' %}"
                   target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Положение об
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Положение об
                   управляющем совете</a
                 >
               </li>
               <li class="about__docs-item">
                 <a
-                  href="./docs/Положение о порядке самообследования.pdf"
+                  href="{% static 'docs/Положение о порядке самообследования.pdf' %}"
                   target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Положение о
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Положение о
                   порядке самообследования</a
                 >
               </li>
@@ -192,81 +191,81 @@
             <h3 class="about__docs-title" id="docs">Документы</h3>
             <ul class="about__docs-list">
               <li class="about__docs-item">
-                <a href="./docs/Устав.pdf" target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Устав</a
+                <a href="{% static 'docs/Устав.pdf' %}" target="_blank"
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Устав</a
                 >
               </li>
               <li class="about__docs-item">
-                <a href="./docs/Коллективный договор.pdf" target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Коллективный
+                <a href="{% static 'docs/Коллективный договор.pdf' %}" target="_blank"
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Коллективный
                   договор</a
                 >
               </li>
               <li class="about__docs-item">
                 <a
-                  href="./docs/Порядок оформления отношений между Золотым ключиком и родителями.pdf"
+                  href="{% static 'docs/Порядок оформления отношений между Золотым ключиком и родителями.pdf' %}"
                   target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Порядок
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Порядок
                   оформления возникновения и прекращения отношений между
                   структурным позразделением Золотым ключиком и родителями</a
                 >
               </li>
               <li class="about__docs-item">
                 <a
-                  href="./docs/Правила отчисления воспитанников структурного подразделения.pdf"
+                  href="{% static 'docs/Правила отчисления воспитанников структурного подразделения.pdf' %}"
                   target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Правила
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Правила
                   отчисления воспитанников структурного подразделения</a
                 >
               </li>
               <li class="about__docs-item">
                 <a
-                  href="./docs/Порядок и основания для перевода, отчисления воспитанников.pdf"
+                  href="{% static 'docs/Порядок и основания для перевода, отчисления воспитанников.pdf' %}"
                   target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Порядок и
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Порядок и
                   основания для перевода, отчисления воспитанников</a
                 >
               </li>
               <li class="about__docs-item">
                 <a
-                  href="./docs/Правила внутреннего распорядка воспитанников Золотой ключик.pdf"
+                  href="{% static 'docs/Правила внутреннего распорядка воспитанников Золотой ключик.pdf' %}"
                   target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Правила
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Правила
                   внутреннего распорядка воспитанников Золотой ключик</a
                 >
               </li>
               <li class="about__docs-item">
                 <a
-                  href="./docs/Правила внутреннего трудового распорядка Золотой ключик.pdf"
+                  href="{% static 'docs/Правила внутреннего трудового распорядка Золотой ключик.pdf' %}"
                   target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Правила
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Правила
                   внутреннего трудового распорядка</a
                 >
               </li>
               <li class="about__docs-item">
                 <a
-                  href="./docs/Положение об аттестации педагогических работников.pdf"
+                  href="{% static 'docs/Положение об аттестации педагогических работников.pdf' %}"
                   target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Положение об
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Положение об
                   аттестации педагогических работников</a
                 >
               </li>
               <li class="about__docs-item">
-                <a href="./docs/Режим занятий воспитанников.pdf" target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Режим занятий
+                <a href="{% static 'docs/Режим занятий воспитанников.pdf' %}" target="_blank"
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Режим занятий
                   воспитанников</a
                 >
               </li>
               <li class="about__docs-item">
-                <a href="./docs/Расписание.pdf" target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Расписание</a
+                <a href="{% static 'docs/Расписание.pdf' %}" target="_blank"
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Расписание</a
                 >
               </li>
               <li class="about__docs-item">
                 <a
-                  href="./docs/Нормы СанПин для детских садов, школ.pdf"
+                  href="{% static 'docs/Нормы СанПин для детских садов, школ.pdf' %}"
                   target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Нормы СанПин
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Нормы СанПин
                   для детских садов, школ</a
                 >
               </li>
@@ -280,91 +279,91 @@
             <h3 class="about__docs-title" id="knowledge">Образование</h3>
             <ul class="about__docs-list">
               <li class="about__docs-item">
-                <a href="./docs/Скан лицензии.pdf" target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Лицензия</a
+                <a href="{% static 'docs/Скан лицензии.pdf' %}" target="_blank"
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Лицензия</a
                 >
               </li>
               <li class="about__docs-item">
                 <a
-                  href="./docs/Образовательная программа дошкольного образования.pdf"
+                  href="{% static 'docs/Образовательная программа дошкольного образования.pdf' %}"
                   target="_blank"
                   ><img
-                    src="./img/document.svg"
+                    src="{% static 'img/document.svg' %}"
                     alt="document"
                   />Образовательная программа дошкольного образования</a
                 >
               </li>
               <li class="about__docs-item">
                 <a
-                  href="./docs/Образовательная программа для обучающихся с ОВЗ (ЗПР).pdf"
+                  href="{% static 'docs/Образовательная программа для обучающихся с ОВЗ (ЗПР).pdf' %}"
                   target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Адаптированная
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Адаптированная
                   образовательная программа дошкольного образования для
                   обучающихся с ограниченными возможностями здоровья (ЗПР)</a
                 >
               </li>
               <li class="about__docs-item">
                 <a
-                  href="./docs/Образовательная программа для обучающихся с ОВЗ (ТНР).pdf"
+                  href="{% static 'docs/Образовательная программа для обучающихся с ОВЗ (ТНР).pdf' %}"
                   target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Адаптированная
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Адаптированная
                   образовательная программа дошкольного образования для
                   обучающихся с ограниченными возможностями здоровья (ТНР)</a
                 >
               </li>
               <li class="about__docs-item">
-                <a href="./docs/Аннотация к АОП.pdf" target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Аннотация к
+                <a href="{% static 'docs/Аннотация к АОП.pdf' %}" target="_blank"
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Аннотация к
                   АОП</a
                 >
               </li>
               <li class="about__docs-item">
                 <a
-                  href="./docs/Специальные условия для лиз с ОВЗ.pdf"
+                  href="{% static 'docs/Специальные условия для лиз с ОВЗ.pdf' %}"
                   target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Специальные
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Специальные
                   условия для лиз с ОВЗ</a
                 >
               </li>
               <li class="about__docs-item">
                 <a
-                  href="./docs/Приказ об утверждении ФОП ДО 2023.pdf"
+                  href="{% static 'docs/Приказ об утверждении ФОП ДО 2023.pdf' %}"
                   target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Приказ об
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Приказ об
                   утверждении ФОП ДО 2023</a
                 >
               </li>
               <li class="about__docs-item">
                 <a
-                  href="./docs/Приказ Минобрнауки РФ Об утверждении федерального стандарта ДО.pdf"
+                  href="{% static 'docs/Приказ Минобрнауки РФ Об утверждении федерального стандарта ДО.pdf' %}"
                   target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Приказ
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Приказ
                   Минобрнауки РФ Об утверждении федерального стандарта ДО</a
                 >
               </li>
               <li class="about__docs-item">
                 <a
-                  href="./docs/Приказ Минпросвещения РФ Об утверждении образовательной деятельности ДО.pdf"
+                  href="{% static 'docs/Приказ Минпросвещения РФ Об утверждении образовательной деятельности ДО.pdf' %}"
                   target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Приказ
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Приказ
                   Минпросвещения РФ Об утверждении образовательной деятельности
                   ДО</a
                 >
               </li>
               <li class="about__docs-item">
                 <a
-                  href="./docs/УПРФ об утверждении гос. политики по сохранению традиционных ценностей.pdf"
+                  href="{% static 'docs/УПРФ об утверждении гос. политики по сохранению традиционных ценностей.pdf' %}"
                   target="_blank"
-                  ><img src="./img/document.svg" alt="document" />УПРФ об
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />УПРФ об
                   утверждении гос. политики по сохранению традиционных
                   ценностей</a
                 >
               </li>
               <li class="about__docs-item">
                 <a
-                  href="./docs/Положение о мониторинге освоения образовательной программы.pdf"
+                  href="{% static 'docs/Положение о мониторинге освоения образовательной программы.pdf' %}"
                   target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Положение о
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Положение о
                   мониторинге освоения образовательной программы</a
                 >
               </li>
@@ -391,22 +390,22 @@
             </div>
           </li>
           <li class="about__item">
-            <h3 class="about__docs-title" style="margin-bottom: 0;" id="empty-space"><a href="./img/вакантные места.png" class="about__docs-title-link glightbox">Вакантные места для приема (перевода) обучающихся по образовательным программам дошкольного образования</a></h3>
+            <h3 class="about__docs-title" style="margin-bottom: 0;" id="empty-space"><a href="{% static 'img/вакантные места.png' %}" class="about__docs-title-link glightbox">Вакантные места для приема (перевода) обучающихся по образовательным программам дошкольного образования</a></h3>
           </li>
         <li class="about__item">
-            <h3 class="about__docs-title" style="margin-bottom: 0;" id="employees"><a href="./img/руководство.png" class="about__docs-title-link glightbox2">Руководство и педагогический состав</a></h3>
+            <h3 class="about__docs-title" style="margin-bottom: 0;" id="employees"><a href="{% static 'img/руководство.png' %}" class="about__docs-title-link glightbox2">Руководство и педагогический состав</a></h3>
         </li>
         <li class="about__item">
             <h3 class="about__docs-title" id="fhd">Финансово-хозяйственная деятельность предприятия:</h3>
             <ul class="about__docs-list">
                 <li class="about__docs-item">
-                  <a href="./docs/Финансово-хозяйственная деятельность предприятия за 2023 год.pdf" target="_blank"
-                    ><img src="./img/document.svg" alt="document" />Финансово-хозяйственная деятельность предприятия за 2023 год</a
+                  <a href="{% static 'docs/Финансово-хозяйственная деятельность предприятия за 2023 год.pdf' %}" target="_blank"
+                    ><img src="{% static 'img/document.svg' %}" alt="document" />Финансово-хозяйственная деятельность предприятия за 2023 год</a
                   >
                 </li>
                 <li class="about__docs-item">
-                  <a href="./docs/Финансово-хозяйственная деятельность предприятия за 2022 год.pdf" target="_blank"
-                    ><img src="./img/document.svg" alt="document" />Финансово-хозяйственная деятельность предприятия за 2022 год</a
+                  <a href="{% static 'docs/Финансово-хозяйственная деятельность предприятия за 2022 год.pdf' %}" target="_blank"
+                    ><img src="{% static 'img/document.svg' %}" alt="document" />Финансово-хозяйственная деятельность предприятия за 2022 год</a
                   >
                 </li>
             </ul>
@@ -415,28 +414,28 @@
             <h3 class="about__docs-title">Организация питания в образовательной деятельности</h3>
             <ul class="about__docs-list">
                 <li class="about__docs-item">
-                  <a href="./docs/Меню для детей в ДОУ возраст от 1-3 лет.pdf" target="_blank"
-                    ><img src="./img/document.svg" alt="document" />Меню для детей в ДОУ возраст от 1-3 лет</a
+                  <a href="{% static 'docs/Меню для детей в ДОУ возраст от 1-3 лет.pdf' %}" target="_blank"
+                    ><img src="{% static 'img/document.svg' %}" alt="document" />Меню для детей в ДОУ возраст от 1-3 лет</a
                   >
                 </li>
                 <li class="about__docs-item">
-                  <a href="./docs/Меню для детей в ДОУ возраст от 3-7 лет.pdf" target="_blank"
-                    ><img src="./img/document.svg" alt="document" />Меню для детей в ДОУ возраст от 3-7 лет</a
+                  <a href="{% static 'docs/Меню для детей в ДОУ возраст от 3-7 лет.pdf' %}" target="_blank"
+                    ><img src="{% static 'img/document.svg' %}" alt="document" />Меню для детей в ДОУ возраст от 3-7 лет</a
                   >
                 </li>
                 <li class="about__docs-item">
-                  <a href="./docs/Технологическая карта для блюд из круп и блюда из яиц.pdf" target="_blank"
-                    ><img src="./img/document.svg" alt="document" />Технологическая карта для блюд из круп и блюда из яиц</a
+                  <a href="{% static 'docs/Технологическая карта для блюд из круп и блюда из яиц.pdf' %}" target="_blank"
+                    ><img src="{% static 'img/document.svg' %}" alt="document" />Технологическая карта для блюд из круп и блюда из яиц</a
                   >
                 </li>
                 <li class="about__docs-item">
-                  <a href="./docs/Технологическая карта для салатов.pdf" target="_blank"
-                    ><img src="./img/document.svg" alt="document" />Технологическая карта для салатов</a
+                  <a href="{% static 'docs/Технологическая карта для салатов.pdf' %}" target="_blank"
+                    ><img src="{% static 'img/document.svg' %}" alt="document" />Технологическая карта для салатов</a
                   >
                 </li>
                 <li class="about__docs-item">
-                  <a href="./docs/Технологическая карта для супов.pdf" target="_blank"
-                    ><img src="./img/document.svg" alt="document" />Технологическая карта для супов</a
+                  <a href="{% static 'docs/Технологическая карта для супов.pdf' %}" target="_blank"
+                    ><img src="{% static 'img/document.svg' %}" alt="document" />Технологическая карта для супов</a
                   >
                 </li>
             </ul>
@@ -449,22 +448,23 @@
             <h3 class="about__docs-title">Прочие документы</h3>
             <ul class="about__docs-list">
               <li class="about__docs-item">
-                <a href="./docs/Приказ № 17 от 31.05.2024.pdf" target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Приказ № 17 от 31.05.2024</a
+                <a href="{% static 'docs/Приказ № 17 от 31.05.2024.pdf' %}" target="_blank"
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Приказ № 17 от 31.05.2024</a
                 >
               </li>
               <li class="about__docs-item">
-                <a href="./docs/Приложение к приказу № 17.pdf" target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Приложение к приказу № 17</a
+                <a href="{% static 'docs/Приложение к приказу № 17.pdf' %}" target="_blank"
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Приложение к приказу № 17</a
                 >
               </li>
               <li class="about__docs-item">
-                <a href="./docs/Опрос о качестве осуществления образовательной деятельности.pdf" target="_blank"
-                  ><img src="./img/document.svg" alt="document" />Опрос о качестве осуществления образовательной деятельности</a
+                <a href="{% static 'docs/Опрос о качестве осуществления образовательной деятельности.pdf' %}" target="_blank"
+                  ><img src="{% static 'img/document.svg' %}" alt="document" />Опрос о качестве осуществления образовательной деятельности</a
                 >
             </li>
             </ul>
         </li>
+        <!--
         <% docsBlock.forEach(block => {  %>
         <li class="about__item">
           <h3 class="about__docs-title"><%= block.title %></h3>
@@ -473,13 +473,14 @@
             <% block.docs.forEach(doc => { %>
             <li class="about__docs-item">
               <a href="/uploads/docs/<%= block.id %>/<%= doc.name %>" target="_blank"
-                ><img src="./img/document.svg" alt="document" /><%= doc.name %></a
+                ><img src="{% static 'img/document.svg' %}" alt="document" /><%= doc.name %></a
               >
             </li>
             <% }) %>
           </ul>
         </li>
         <% }) %>
+        -->
         </ul>
       </div>
     </div>

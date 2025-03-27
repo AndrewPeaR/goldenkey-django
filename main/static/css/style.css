@@ -172,23 +172,26 @@ html {
   scroll-behavior: smooth;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+}
+
 .btn {
   display: inline-block;
   cursor: pointer;
-  height: 53px;
-  padding: 13px 27px;
-  border: 1px solid #2A2A2A;
-  text-transform: uppercase;
+  border: 2px solid #FF9DBA;
+  border-radius: 30px;
+  padding: 15px 40px;
   transition: all 0.2s ease-out;
   font-size: 20px;
   font-weight: 500;
   line-height: normal;
   letter-spacing: 0;
-  color: #2A2A2A;
+  color: #FF9DBA;
 }
 .btn:hover {
-  border-color: none;
-  background-color: #2A2A2A;
+  background-color: #FF9DBA;
   color: #ffffff;
 }
 
@@ -937,6 +940,7 @@ html {
 }
 .reviews__controls {
   margin-top: 50px;
+  margin-bottom: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1203,6 +1207,30 @@ html {
 .error__btn:hover {
   background-color: #90C6F3;
   color: #F9F6EE;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: -3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-out;
+}
+.popup_open {
+  opacity: 1;
+  z-index: 10;
+}
+.popup__wrapper {
+  padding: 15px 20px;
+  background-color: #ffffff;
+  border-radius: 30px;
 }
 
 .footer-bg {

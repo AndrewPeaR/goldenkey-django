@@ -17,7 +17,7 @@ class WelcomeBlockAdmin(admin.ModelAdmin):
 
 @admin.register(Questions)
 class QuestionsAdmin(admin.ModelAdmin):
-    list_display = ("name", "create_at")
+    list_display = ("name", "phoneNumber", "question", "status", "create_at", "updated_at")
 
 @admin.register(FAQ)
 class FAQAdmin(admin.ModelAdmin):

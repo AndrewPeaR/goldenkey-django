@@ -10,19 +10,21 @@ html, body
 html
     scroll-behavior: smooth
 
+.center
+    display: flex
+    justify-content: center
+
 .btn
     display: inline-block
     cursor: pointer
-    height: 53px
-    padding: 13px 27px
-    border: 1px solid $dark
-    text-transform: uppercase
+    border: 2px solid $pink
+    border-radius: 30px
+    padding: 15px 40px
     @include fast-transition
-    @include font-styles(20px, 500, normal, 0, $dark)
+    @include font-styles(20px, 500, normal, 0, $pink)
 
     &:hover
-        border-color: none
-        background-color: $dark
+        background-color: $pink
         color: $white
 .center-image
     padding-top: 30px
