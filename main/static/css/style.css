@@ -905,7 +905,8 @@ html {
   color: #2A2A2A;
 }
 .reviews__card .reviews__video {
-  display: block;
+  display: flex;
+  justify-content: center;
   overflow: hidden;
   width: 107px;
   height: 107px;
@@ -917,6 +918,10 @@ html {
 }
 .reviews__card .reviews__video video {
   object-fit: cover;
+}
+.reviews__card .reviews__image {
+  height: 100%;
+  max-width: unset;
 }
 .reviews .swiper-slide:nth-child(4n+1) .reviews__content {
   background-color: #BEE173;
@@ -1015,6 +1020,7 @@ html {
 }
 .news__card-text {
   hyphens: auto;
+  white-space: pre-line;
   font-size: 20px;
   font-weight: 200;
   line-height: normal;

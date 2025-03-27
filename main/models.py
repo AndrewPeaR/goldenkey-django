@@ -28,12 +28,12 @@ class WelcomeBlock(models.Model):
         return self.title
 
 class Questions(models.Model):
-    name = models.TextField()
-    phoneNumber = models.TextField()
-    question = models.TextField()
-    status = models.BooleanField(default=False)
-    create_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    name = models.TextField(verbose_name='Имя')
+    phoneNumber = models.TextField(verbose_name='Телефон')
+    question = models.TextField(verbose_name='Вопрос')
+    status = models.BooleanField(verbose_name='Обработан', default=False)
+    create_at = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name='Дата обработки', auto_now=True)
 
     class Meta:
         verbose_name_plural = "Заявки"
@@ -51,9 +51,9 @@ class FAQ(models.Model):
     def __str__(self):
         return self.title
 
-class Docs(models.Model):
+class Memo(models.Model):
     name = models.TextField()
-    doc = models.FileField(upload_to='uploads/docs')
+    doc = models.FileField(upload_to='memo')
 
     class Meta:
         verbose_name_plural = "Памятки"
@@ -62,9 +62,9 @@ class Docs(models.Model):
         return self.name
 
 class News(models.Model):
-    title = models.TextField()
-    description = models.TextField()
-    image = models.FileField(upload_to='uploads/news')
+    title = models.TextField(verbose_name='Заголовок')
+    description = models.TextField(verbose_name='Текст новости')
+    image = models.ImageField(upload_to='news', verbose_name='Картинка новости', validators=[FileExtensionValidator(allowed_extensions=('png', 'jpg', 'webp', 'jpeg', 'gif'))])
 
     class Meta:
         verbose_name_plural = "Последние новости"
@@ -82,3 +82,37 @@ class Advantages(models.Model):
 
     def __str__(self):
         return self.title
+
+class Performance(models.Model):
+    title = models.TextField(verbose_name='Заголовок')
+    poster = models.ImageField(upload_to='performance', verbose_name='Заставка')
+    video = models.FileField(upload_to='performance', verbose_name='Видео')
+
+    class Meta:
+        verbose_name_plural = "Блок с видео"
+
+    def __str__(self):
+        return self.title
+    
+class PerformanceItems(models.Model):
+    description = models.TextField(verbose_name='Текст')
+    class Meta:
+        verbose_name_plural = "Блок с преимуществами под видео"
+
+    def __str__(self):
+        return self.description
+    
+class Reviews(models.Model):
+    name = models.TextField(verbose_name='Имя ребенка')
+    parent = models.TextField(verbose_name='Родитель(ли)')
+    childAge = models.TextField(verbose_name='Возраст ребенка')
+    review = models.TextField(verbose_name='Отзыв')
+    fileUrl = models.FileField(upload_to='reviews', verbose_name='Фото или видео отзыва')
+    published = models.BooleanField(verbose_name='Видимость')
+    create_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
+
+    class Meta:
+        verbose_name_plural = "Отзывы"
+
+    def __str__(self):
+        return self.name

@@ -37,7 +37,8 @@
             .reviews__text
                 @include font-styles(15px, 200, normal, 0, $dark)
         .reviews__video
-            display: block
+            display: flex
+            justify-content: center
             overflow: hidden
             width: 107px
             height: 107px
@@ -48,6 +49,9 @@
             top: -57px
             video
                 object-fit: cover
+        .reviews__image
+            height: 100%
+            max-width: unset
     
     .swiper-slide:nth-child(4n+1) .reviews__content
         background-color: $green
