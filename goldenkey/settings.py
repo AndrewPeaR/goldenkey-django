@@ -29,7 +29,7 @@ SECRET_KEY = 'm6cvwnsyi!59_+^32q)=hwrp!z%r24jri5rd==pkwaf*%7b#aa'
 DEBUG = True
 
 ALLOWED_HOSTS = ['andrewpear-goldenkey-django-e550.twc1.net']
-
+CSRF_TRUSTED_ORIGINS=["andrewpear-goldenkey-django-e550.twc1.net"]
 
 # Application definition
 
