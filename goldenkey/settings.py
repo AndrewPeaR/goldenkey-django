@@ -28,7 +28,7 @@ SECRET_KEY = 'm6cvwnsyi!59_+^32q)=hwrp!z%r24jri5rd==pkwaf*%7b#aa'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['andrewpear-goldenkey-django-e550.twc1.net']
+ALLOWED_HOSTS = ['andrewpear-goldenkey-django-e550.twc1.net', 'localhost']
 
 # Application definition
 

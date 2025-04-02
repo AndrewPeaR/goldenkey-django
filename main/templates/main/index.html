@@ -330,6 +330,7 @@
   <div class="popup__wrapper">
     <button id="sendReviewClose">ЗАКРЫТЬ</button>
     <form action="">
+      {% csrf_token %}
       {{ reviewForm }}
       <button type="submit">Отправить</button>
     </form>
