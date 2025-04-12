@@ -31,6 +31,10 @@ DEBUG = True
 ALLOWED_HOSTS = ['andrewpear-goldenkey-django-e550.twc1.net', 'localhost', 'andrewpear-goldenkey-django-0615.twc1.net']
 
 CSRF_TRUSTED_ORIGINS=["https://andrewpear-goldenkey-django-e550.twc1.net"]
+CSRF_COOKIE_SECURE = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+
 # Application definition
 
 INSTALLED_APPS = [
