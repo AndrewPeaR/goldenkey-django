@@ -72,7 +72,7 @@
                     content: url(../img/geotag-blue.svg)
                     top: 0
                     left: 0
-        .about__docs-item
+        .about__docs-item, li
             a
                 display: inline-flex
                 align-items: center
@@ -81,3 +81,23 @@
                 @include fast-transition
                 &:hover
                     color: $pink
+
+                &::before
+                    content: ''
+                    width: 32px
+                    height: 33px
+                    background-image: url(../img/document.svg)
+        a[title='file']
+                display: inline-flex
+                align-items: center
+                gap: 20px
+                @include font-styles(20px, 400, normal, 0, $dark)
+                @include fast-transition
+                &:hover
+                    color: $pink
+
+                &::before
+                    content: ''
+                    width: 32px
+                    height: 33px
+                    background-image: url(../img/document.svg)

@@ -48,7 +48,7 @@
   <div class="wrapper">
     <div class="filials" id="filials">
       <div class="filials__description">
-        <h2 class="filials__title">Наши филиалы</h2>
+        <h2 class="filials__title">Выбрать детский сад</h2>
         <p class="filials__text">Выберите любой удобный центр для посещения!</p>
         <p class="filials__text">
           Наши преподаватели - опытные профессионалы, которые помогут вашему
@@ -56,7 +56,29 @@
           присоединиться к нам и открыть для вашего ребенка новые возможности!
         </p>
       </div>
-      <img class="filials__icon" src="{% static 'img/test.png' %}" alt="test" />
+      <div class="filials__items">
+        {% for filial in filials %}
+        <div class="filials__item">
+          {% if filial.new %}
+          <div class="filials__new">New</div>
+          {% endif %}
+          <h3 class="filials__name">{{ filial.name }}</h3>
+          <div class="filials__address">
+            <p class="filials__city">
+              {{ filial.city }}
+            </p>
+            <p class="filials__street">
+              {{ filial.street }}
+            </p>
+          </div>
+          <div class="filials__action">
+            <button class="filials__contacts">Записаться</button>
+            <a href="filial/{{ filial.slug }}" class="filials__more">Подробнее</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <img class="filials__icon" src="{% static 'img/test.svg' %}" alt="test" />
     </div>
   </div>
 </section>

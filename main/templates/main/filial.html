@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section class="filial">
+  <div class="wrapper">
+    <div>
+      <div class="filial__video">
+        <img class="filial__poster" src="{{ filial.poster.url }}" alt="{{ filial.poster.url }}">
+        <img class="filial__videoplay" src="{% static 'img/play-white.svg' %}" alt="">
+      </div>
+      <div class="filial__info">
+        <div class="filial__info-item">
+          <img class="filial__info-image" src="{% static 'img/filial/item1.svg' %}" alt="filial/item1.svg">
+          <p class="filial__info-description">работаем</br>{{filial.timework}}</p>
+        </div>
+        <div class="filial__info-item">
+          <img class="filial__info-image" src="{% static 'img/filial/item2.svg' %}" alt="filial/item1.svg">
+          <p class="filial__info-description">группы</br>{{filial.group}}</p>
+        </div>
+        <div class="filial__info-item">
+          <img class="filial__info-image" src="{% static 'img/filial/item3.svg' %}" alt="filial/item1.svg">
+          <p class="filial__info-description">работаем</br>{{filial.count_child}}</p>
+        </div>
+        <div class="filial__info-item">
+          <img class="filial__info-image" src="{% static 'img/filial/item4.svg' %}" alt="filial/item1.svg">
+          <p class="filial__info-description">работаем</br>24/7</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="filial__news">
+    <div class="filial__swiper swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        {% for item in filial_news %}
+        <div class="swiper-slide">
+          <div class="filial__card">
+            <div class="filial__card-img">
+              <img
+                src="{{ item.image.url }}"
+                alt="{{ item.image.url }}"
+              />
+            </div>
+            <div class="filial__card-info">
+              <h3 class="filial__card-title">{{ item.title }}</h3>
+              <p class="filial__card-text">{{ item.description }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+<div class="filial__popup">
+  <h2 class="filial__name">{{filial.name}}</h2>
+  <p class="filial__city">{{filial.city}}</p>
+  <p class="filial__street">{{filial.street}}</p>
+</div>
+{% endblock content %}

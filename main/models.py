@@ -1,5 +1,76 @@
 from django.db import models
 from django.core.validators import FileExtensionValidator
+from tinymce.models import HTMLField
+
+# , null=True, blank=True
+def path_filial_video(instance, filename):
+    return '/'.join(filter(None, ('filials', instance.name, 'video', filename)))
+
+class Filials(models.Model):
+    name = models.CharField(verbose_name='Название филиала', max_length=100)
+    slug = models.SlugField(unique=True)
+    city = models.CharField(verbose_name='Город', max_length=100)
+    street = models.CharField(verbose_name='Улица', max_length=150)
+    timework = models.CharField(verbose_name='Время работы', max_length=100)
+    group = models.CharField(verbose_name='Возраст для группы', max_length=100)
+    count_child = models.CharField(verbose_name='До скольки детей идет набор', max_length=100)
+    new = models.BooleanField(verbose_name='Статус нового', default=False, null=True, blank=True)
+    poster = models.ImageField(verbose_name='Превью видео', upload_to=path_filial_video, validators=[FileExtensionValidator(allowed_extensions=('png', 'jpg', 'webp', 'jpeg', 'gif'))], default='')
+
+    class Meta:
+        verbose_name_plural = "Филиалы"
+
+    def __str__(self):
+        return self.name
+
+def path_filials_news(instance, filename):
+    return '/'.join(filter(None, ('filialsNews', instance.filials.name, filename)))
+
+class FilialsNews(models.Model):
+    title = models.TextField(verbose_name='Заголовок')
+    description = models.TextField(verbose_name='Описание')
+    filials = models.ForeignKey(Filials, on_delete = models.DO_NOTHING)
+    image = models.ImageField(upload_to=path_filials_news, verbose_name='Картинка новости', validators=[FileExtensionValidator(allowed_extensions=('png', 'jpg', 'webp', 'jpeg', 'gif'))])
+    class Meta:
+        verbose_name_plural = "Новости филиалов"
+
+    def __str__(self):
+        return self.title
+
+def path_filials_team(instance, filename):
+    return '/'.join(filter(None, ('filialsTeam', instance.filials.name, filename)))
+
+class FilialsTeam(models.Model):
+    firstname = models.CharField(verbose_name='Имя Отчество', max_length=200)
+    lastname = models.CharField(verbose_name='Фамилия', max_length=100)
+    status = models.CharField(verbose_name='Профессия', max_length=100)
+    expirience = models.CharField(verbose_name='Количество опыта', max_length=50)
+    quote = models.TextField(verbose_name='Цитата', null=True, blank=True)
+    filials = models.ForeignKey(Filials, on_delete = models.DO_NOTHING)
+    image = models.ImageField(verbose_name='Фотография', upload_to=path_filials_team, validators=[FileExtensionValidator(allowed_extensions=('png', 'jpg', 'webp', 'jpeg', 'gif'))])
+    description = models.TextField(verbose_name='Описание', null=True, blank=True)
+    callToAction = models.TextField(verbose_name='Призыв к действию', null=True, blank=True)
+
+    class Meta:
+        verbose_name_plural = "Работники филиалов"
+
+    def __str__(self):
+        return self.lastname + ' ' + self.firstname
+
+class DocumentsPage(models.Model):
+    title = models.TextField()
+    content = HTMLField()
+    
+    class Pages(models.TextChoices):
+        GOLDENKEY = 'GLK', 'ООО «Золотой ключик»'
+        BASHAEVA = 'BSH', 'ИП Башаева М.Р.' 
+
+    page = models.CharField(max_length=3, choices=Pages.choices, default=Pages.GOLDENKEY)
+    
+    class Meta:
+        verbose_name_plural = "Страница с документами"
+    def __str__(self):
+        return self.title
 
 class MainBlock(models.Model):
     title = models.TextField()

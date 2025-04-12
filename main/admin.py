@@ -1,6 +1,10 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from .models import MainBlock, WelcomeBlock, Questions, FAQ, Memo, News, Advantages, Performance, PerformanceItems, Reviews
+from .models import MainBlock, WelcomeBlock, Questions, FAQ, Memo, News, Advantages, Performance, PerformanceItems, Reviews, DocumentsPage, Filials, FilialsNews, FilialsTeam
+
+@admin.register(DocumentsPage)
+class DocumentsPageAdmin(admin.ModelAdmin):
+    list_display = ("title", )
 
 @admin.register(MainBlock)
 class MainBlockAdmin(admin.ModelAdmin):
@@ -60,3 +64,24 @@ class PerformanceItemsAdmin(admin.ModelAdmin):
 @admin.register(Reviews)
 class ReviewsAdmin(admin.ModelAdmin):
     list_display = ("name", "parent", "review", "published")
+
+@admin.register(Filials)
+class FilialsAdmin(admin.ModelAdmin):
+    list_display = ("name", "city", "street", "new")
+    prepopulated_fields = {'slug': ('name',)}
+
+@admin.register(FilialsNews)
+class FilialsNewsAdmin(admin.ModelAdmin):
+    list_display = ("title", "description", "preview", "filials")
+    # Предпросмотр картинки элемента
+    readonly_fields = ["preview"]
+    def preview(self, obj):
+        return mark_safe(f'<img src="{obj.image.url}" style="max-height: 100px;">')
+
+@admin.register(FilialsTeam)
+class FilialsTeamAdmin(admin.ModelAdmin):
+    list_display = ("lastname", "firstname", "status", "quote", "preview", "filials")
+    # Предпросмотр картинки элемента
+    readonly_fields = ["preview"]
+    def preview(self, obj):
+        return mark_safe(f'<img src="{obj.image.url}" style="max-height: 100px;">')

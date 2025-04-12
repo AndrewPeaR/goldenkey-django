@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     # 'admin_tools.theming',
     # 'admin_tools.menu',
     # 'admin_tools.dashboard',
+    'grappelli',
+    'filebrowser',
+    'tinymce',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -125,11 +128,57 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = (BASE_DIR / 'static')
 
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # 'sass_processor.finders.CssFinder'
+]
+
 MEDIA_URL = 'media/'
 # Для дальнейшей доработки сайта проработать путь для медиа файлов!!!
 MEDIA_ROOT = (BASE_DIR / 'main/media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
+
+
+# Настойки для tinymce и fileBrowser
+TINYMCE_SPELLCHECKER = True
+TINYMCE_JS_URL = os.path.join("tinymce/tinymce.min.js")
+TINYMCE_JS_ROOT = os.path.join("tinymce")
+TINYMCE_COMPRESSOR = False
+
+FILEBROWSER_DIRECTORY = ''
+DIRECTORY = ''
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+TINYMCE_DEFAULT_CONFIG = {
+    "relative_urls": False,
+    "remove_script_host": False,
+    "convert_urls": True,
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 20,
+    'theme': 'silver',
+    'plugins': '''
+            textcolor save link image media preview codesample contextmenu
+            table code lists fullscreen  insertdatetime  nonbreaking
+            contextmenu directionality searchreplace wordcount visualblocks
+            visualchars code fullscreen autolink lists  charmap print  hr
+            anchor pagebreak
+            ''',
+    'toolbar1': '''
+            bold italic underline | fontselect,
+            fontsizeselect  | forecolor backcolor | alignleft alignright |
+            aligncenter alignjustify | indent outdent | bullist numlist table |
+            | link image media | codesample |
+            ''',
+    'images_file_types': 'jpg,svg,webp, png, pdf',
+    'file_picker_types': 'file image media',
+    'contextmenu': 'formats | link image',
+    'menubar': True,
+    'statusbar': True,
+    "language": "en_US",
+}
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

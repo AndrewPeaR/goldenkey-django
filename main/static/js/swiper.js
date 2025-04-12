@@ -29,3 +29,20 @@ const swiper2 = new Swiper(".news__swiper", {
     },
     slidesPerView: 3,
   });
+
+const swiper3 = new Swiper(".filial__swiper", {
+    // Optional parameters
+    // direction: "vertical",
+    loop: true,
+    freeMode: true,
+    // autoplay: {
+    //   delay: 3000,
+    // },
+    spaceBetween: 33,
+    // navigation: {
+    //   enable: true,
+    //   nextEl: ".news__next",
+    //   prevEl: ".news__back",
+    // },
+    slidesPerView: 5,
+  });
