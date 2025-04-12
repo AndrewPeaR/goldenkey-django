@@ -30,7 +30,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['andrewpear-goldenkey-django-e550.twc1.net', 'localhost', 'andrewpear-goldenkey-django-0615.twc1.net']
 
-CSRF_TRUSTED_ORIGINS=["https://andrewpear-goldenkey-django-e550.twc1.net/"]
+CSRF_TRUSTED_ORIGINS=["https://andrewpear-goldenkey-django-e550.twc1.net"]
 # Application definition
 
 INSTALLED_APPS = [
