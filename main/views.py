@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-from .forms import UserForm, ReviewForm, checkCaptcha
+from .forms import UserForm, ReviewForm, checkCaptcha, BookForm
 from .models import MainBlock, WelcomeBlock, Advantages, Performance, PerformanceItems, Memo, FAQ, News, Reviews, DocumentsPage, Filials, FilialsNews, FilialsTeam
 
 
@@ -8,7 +8,7 @@ def index(request):
     if request.method == 'POST':
         form = UserForm(request.POST)
         if form.is_valid():
-            if checkCaptcha(request):
+            if checkCaptcha(request, 'question'):
                 question = form.save(commit=False)
                 question.save()
                 # print("Passed and save form")
@@ -30,9 +30,25 @@ def index(request):
         'news': News.objects.all(),
         'reviews': Reviews.objects.filter(published = True),
         'form': UserForm(),
-        'reviewForm': ReviewForm()
+        'reviewForm': ReviewForm(),
+        'sendBookForm': BookForm(),
     }
     return render(request, 'main/index.html', context)
+
+def sendBook(request):
+    if request.method == 'POST':
+        form = BookForm(request.POST)
+        print(request.POST)
+        if form.is_valid():
+            if checkCaptcha(request, 'sendBook'):
+                bookSend = form.save(commit=False)
+                bookSend.save()
+                # print("Passed and save form")
+            else:
+                print("Robot")
+        else:
+            print('Form invalid')
+    return redirect('/')
 
 def about(request):
     context = {

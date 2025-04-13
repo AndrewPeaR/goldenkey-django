@@ -2,12 +2,22 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from django import forms
-from .models import Questions, Reviews
+from .models import Questions, Reviews, BookSend
 
 import os
 import sys
 import json
 import requests
+
+class BookForm(forms.Form, forms.ModelForm):
+    name = forms.CharField(widget=forms.TextInput(attrs={"class":"sendbook__input", 'placeholder': 'Имя'}), label='', required=True)
+    phoneNumber = forms.CharField(widget=forms.TextInput(attrs={"class":"sendbook__input", 'placeholder': '+7(___)___-__-__'}), label='', required=True)
+    email = forms.EmailField(widget=forms.TextInput(attrs={"class":"sendbook__input", 'placeholder': 'Email'}), label='', required=True)
+    policy = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class":"sendbook__checkbox", 'id': 'sendbook__input-policy'}), label='', required=True)
+
+    class Meta:
+        model = BookSend
+        fields = ('name', 'phoneNumber', 'email', 'policy')
 
 class UserForm(forms.Form, forms.ModelForm):
     name = forms.CharField(widget=forms.TextInput(attrs={"class":"questions__form-input", 'placeholder': 'Имя'}), label='')
@@ -37,16 +47,25 @@ def get_client_ip(request):
         ip = request.META.get('REMOTE_ADDR')
     return ip
 
-def checkCaptcha(request):
+def checkCaptcha(request, type):
+    match type:
+        case 'question':
+            secret=os.getenv('SMARTCAPTCHA_SERVER_KEY'), 
+        case 'sendBook':
+            secret=os.getenv('SMARTCAPTCHA_SERVER_KEY_HIDE'), 
+
+    print(request.POST.get("smart-token"))
     resp = requests.post(
        "https://smartcaptcha.yandexcloud.net/validate",
        data={
-          "secret": os.getenv('SMARTCAPTCHA_SERVER_KEY'),
+        #   "secret": os.getenv('SMARTCAPTCHA_SERVER_KEY'),            
+          "secret": secret,
           "token": request.POST.get("smart-token"),
-          "ip": get_client_ip(request)  
+          "ip": get_client_ip(request)
        },
        timeout=1
     )
+    
     server_output = resp.content.decode()
     if resp.status_code != 200:
        print(f"Allow access due to an error: code={resp.status_code}; message={server_output}", file=sys.stderr)

@@ -46,6 +46,32 @@
 
 <section>
   <div class="wrapper">
+    <div class="sendbook">
+      <h2 class="sendbook__title">Как подготовить ребенка к детскому саду?</h2>
+      <p class="sendbook__undertitle">Заполните форму и получите на почту бесплатное пособие для родителей по адаптации в детском саду</p>
+      <form id="sendbookForm" class="senbook__form" action="/sendbook" method="POST" onsubmit="handleSubmit(event)">
+      <!-- <form id="sendbookForm" class="senbook__form"> -->
+        {% csrf_token %}
+        <div class="sendbook__inputs">
+          {{sendBookForm.name}}
+          {{sendBookForm.phoneNumber}}
+          {{sendBookForm.email}}
+        </div>
+        <div id="captcha-container2"></div>
+        <div class="sendbook__controls">
+          <button type="submit" class="sendbook__submit" value="Submit">Получить книгу</button>
+          {{sendBookForm.policy}}
+          <label for="sendbook__input-policy" class="sendbook__policy">
+            <p>Я даю свое согласие на обработку персональных данных. Я ознакомился и принимаю условия Политики конфиденциальности.</p>
+          </label>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrapper">
     <div class="filials" id="filials">
       <div class="filials__description">
         <h2 class="filials__title">Выбрать детский сад</h2>
@@ -199,7 +225,6 @@
                     style="height: 100px"
                     id="captcha-container"
                     class="smart-captcha"
-                    data-sitekey="ysc1_bLt1HCJIeeQIuEEPSlh8jii8T7oWcqx2Fgwyylbl5cc0517f"
                 ></div>
                   <button type="submit" class="questions__form-button">
                   Отправить

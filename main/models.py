@@ -187,3 +187,16 @@ class Reviews(models.Model):
 
     def __str__(self):
         return self.name
+
+class BookSend(models.Model):
+    name = models.CharField(verbose_name='Имя', max_length=70)
+    phoneNumber = models.CharField(verbose_name='Телефон', max_length=25)
+    email = models.CharField(verbose_name='E-mail', max_length=100)
+    policy = models.BooleanField(verbose_name='Согласие на обработку персональных данных', default=False)
+    send_at = models.DateTimeField(verbose_name='Дата отправления', auto_now_add=True, null=True)
+    
+    class Meta:
+        verbose_name_plural = "Отправленния пособия для адаптации"
+
+    def __str__(self):
+        return self.name

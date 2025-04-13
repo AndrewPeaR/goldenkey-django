@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from .models import MainBlock, WelcomeBlock, Questions, FAQ, Memo, News, Advantages, Performance, PerformanceItems, Reviews, DocumentsPage, Filials, FilialsNews, FilialsTeam
+from .models import MainBlock, WelcomeBlock, Questions, FAQ, Memo, News, Advantages, Performance, PerformanceItems, Reviews, DocumentsPage, Filials, FilialsNews, FilialsTeam, BookSend
 
 @admin.register(DocumentsPage)
 class DocumentsPageAdmin(admin.ModelAdmin):
@@ -85,3 +85,8 @@ class FilialsTeamAdmin(admin.ModelAdmin):
     readonly_fields = ["preview"]
     def preview(self, obj):
         return mark_safe(f'<img src="{obj.image.url}" style="max-height: 100px;">')
+
+@admin.register(BookSend)
+class BookSendAdmin(admin.ModelAdmin):
+    list_display = ("name", "phoneNumber", "email", "policy", "send_at")
+    # list_display = ("name", "phoneNumber", "email", "policy")

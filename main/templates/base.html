@@ -19,7 +19,13 @@
     <meta property="og:description" content="Центр развития 'Золотой ключик' для детей дошкольного возраста в городе Сургут. Доверьте заботу о своём малыше нам! А мы с любовью и заботой откроем перед ним мир знаний и возможностей! Развиваем потенциал детей уже более 20 лет! У нас каждый ребенок находит свое место, раскрывает свои таланты и развивает навыки для успешного старта в жизни.">
     <meta property="og:image" content="https://goldenkey86.ru/img/advantages1.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
-    <script src="https://smartcaptcha.yandexcloud.net/captcha.js" defer></script>
+    
+    <!-- <script src="https://smartcaptcha.yandexcloud.net/captcha.js" defer></script> -->
+    <script
+      src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction"
+      defer
+    ></script>
+
   </head>
   <body>
     <header>
@@ -147,7 +153,9 @@
         selector: '.glightbox2'
       });
     </script>
+    
     <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.9/swiper-bundle.min.js"></script>
+    <script src="{% static 'js/captcha.js' %}"></script>
     <script src="{% static 'js/swiper.js' %}"></script>
     <script src="{% static 'js/lightbox.js' %}"></script>
     <script src="{% static 'js/videoplayer.js' %}"></script>
