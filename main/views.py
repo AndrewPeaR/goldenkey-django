@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
+from django.core.mail import EmailMessage
 
 from .forms import UserForm, ReviewForm, checkCaptcha, BookForm
-from .models import MainBlock, WelcomeBlock, Advantages, Performance, PerformanceItems, Memo, FAQ, News, Reviews, DocumentsPage, Filials, FilialsNews, FilialsTeam
+from .models import MainBlock, WelcomeBlock, Advantages, Performance, PerformanceItems, Memo, FAQ, News, Reviews, DocumentsPage, Filials, FilialsNews, FilialsTeam, EmailSettings
 
 
 def index(request):
@@ -11,7 +12,6 @@ def index(request):
             if checkCaptcha(request, 'question'):
                 question = form.save(commit=False)
                 question.save()
-                # print("Passed and save form")
             else:
                 print("Robot")
         else:
@@ -43,7 +43,10 @@ def sendBook(request):
             if checkCaptcha(request, 'sendBook'):
                 bookSend = form.save(commit=False)
                 bookSend.save()
-                # print("Passed and save form")
+                email_settings = EmailSettings.objects.first()
+                mail = EmailMessage(email_settings.theme, email_settings.body, 'noreply@goldenkey86.ru', to=[bookSend.email])
+                mail.attach_file(email_settings.pdf.path)
+                mail.send()
             else:
                 print("Robot")
         else:

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from .models import MainBlock, WelcomeBlock, Questions, FAQ, Memo, News, Advantages, Performance, PerformanceItems, Reviews, DocumentsPage, Filials, FilialsNews, FilialsTeam, BookSend
+from .models import MainBlock, WelcomeBlock, Questions, FAQ, Memo, News, Advantages, Performance, PerformanceItems, Reviews, DocumentsPage, Filials, FilialsNews, FilialsTeam, BookSend, EmailSettings
 
 @admin.register(DocumentsPage)
 class DocumentsPageAdmin(admin.ModelAdmin):
@@ -90,3 +90,7 @@ class FilialsTeamAdmin(admin.ModelAdmin):
 class BookSendAdmin(admin.ModelAdmin):
     list_display = ("name", "phoneNumber", "email", "policy", "send_at")
     # list_display = ("name", "phoneNumber", "email", "policy")
+
+@admin.register(EmailSettings)
+class EmailSettingsAdmin(admin.ModelAdmin):
+    list_display = ("theme", "body", "pdf")

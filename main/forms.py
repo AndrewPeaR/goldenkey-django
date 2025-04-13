@@ -50,15 +50,13 @@ def get_client_ip(request):
 def checkCaptcha(request, type):
     match type:
         case 'question':
-            secret=os.getenv('SMARTCAPTCHA_SERVER_KEY'), 
+            secret=os.getenv('SMARTCAPTCHA_SERVER_KEY')
         case 'sendBook':
-            secret=os.getenv('SMARTCAPTCHA_SERVER_KEY_HIDE'), 
-
-    print(request.POST.get("smart-token"))
+            secret=os.getenv('KEY_HIDE')
+    
     resp = requests.post(
        "https://smartcaptcha.yandexcloud.net/validate",
-       data={
-        #   "secret": os.getenv('SMARTCAPTCHA_SERVER_KEY'),            
+       data={           
           "secret": secret,
           "token": request.POST.get("smart-token"),
           "ip": get_client_ip(request)

@@ -200,3 +200,14 @@ class BookSend(models.Model):
 
     def __str__(self):
         return self.name
+
+class EmailSettings(models.Model):
+    theme = models.CharField(verbose_name='Тема письма', max_length=300)
+    body = models.TextField(verbose_name='Тело письма')
+    pdf = models.FileField(upload_to='setting/sendBook')
+
+    class Meta:
+        verbose_name_plural = "Настройка рассылки пособия"
+
+    def __str__(self):
+        return self.theme
