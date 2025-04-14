@@ -7,5 +7,6 @@ urlpatterns = [
     path('sendbook', sendBook, name='sendBook'),
     path('goldenkey', goldenkey, name='goldenkey'),
     path('bashaeva', bashaeva, name='bashaeva'),
-    path('filial/<slug:filial_slug>', filial, name='filial')
+    path('filial/team', teamFilial, name='teamFilial'),
+    path('filial/<slug:filial_slug>', filial, name='filial'),
 ]

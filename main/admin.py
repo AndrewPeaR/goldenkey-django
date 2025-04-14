@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from .models import MainBlock, WelcomeBlock, Questions, FAQ, Memo, News, Advantages, Performance, PerformanceItems, Reviews, DocumentsPage, Filials, FilialsNews, FilialsTeam, BookSend, EmailSettings
+from .models import MainBlock, WelcomeBlock, Questions, FAQ, Memo, News, Advantages, Performance, PerformanceItems, Reviews, DocumentsPage, Filials, FilialsNews, FilialsTeam, BookSend, EmailSettings, ExcursionFilial
 
 @admin.register(DocumentsPage)
 class DocumentsPageAdmin(admin.ModelAdmin):
@@ -94,3 +94,17 @@ class BookSendAdmin(admin.ModelAdmin):
 @admin.register(EmailSettings)
 class EmailSettingsAdmin(admin.ModelAdmin):
     list_display = ("theme", "body", "pdf")
+
+@admin.register(ExcursionFilial)
+class ExcursionFilialAdmin(admin.ModelAdmin):
+    list_display = ("name", "phoneNumber", "email", "policy", "filial", "filialAddress", "send_at")
+    list_filter = ('filial', )
+
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        return qs.select_related('filial')
+
+    def filialAddress(self, obj):
+        return obj.filial.city + ', ' + obj.filial.street
+    filialAddress.short_description = 'Адрес филиала'
+    filialAddress.admin_order_field = 'filial__city'

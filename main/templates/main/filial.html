@@ -2,11 +2,18 @@
 {% load static %}
 {% block content %}
 <section class="filial">
+  <div class="filial__popup">
+    <h2 class="filial__name">{{filial.name}}</h2>
+    <p class="filial__city">{{filial.city}}</p>
+    <p class="filial__street">{{filial.street}}</p>
+  </div>
   <div class="wrapper">
     <div>
       <div class="filial__video">
         <img class="filial__poster" src="{{ filial.poster.url }}" alt="{{ filial.poster.url }}">
-        <img class="filial__videoplay" src="{% static 'img/play-white.svg' %}" alt="">
+        <a href="{{ filial.video.url }}" class="glightbox">
+          <img class="filial__videoplay" src="{% static 'img/play-white.svg' %}" alt="">
+        </a>
       </div>
       <div class="filial__info">
         <div class="filial__info-item">
@@ -19,12 +26,33 @@
         </div>
         <div class="filial__info-item">
           <img class="filial__info-image" src="{% static 'img/filial/item3.svg' %}" alt="filial/item1.svg">
-          <p class="filial__info-description">работаем</br>{{filial.count_child}}</p>
+          <p class="filial__info-description">набираем</br>{{filial.count_child}}</p>
         </div>
         <div class="filial__info-item">
           <img class="filial__info-image" src="{% static 'img/filial/item4.svg' %}" alt="filial/item1.svg">
-          <p class="filial__info-description">работаем</br>24/7</p>
+          <p class="filial__info-description">страхование</br>24/7</p>
         </div>
+      </div>
+      <div class="filial__sign-up">
+        <h2 class="filial__sign-up-title">Идет набор в группы 5-7 лет!</h2>
+        <p class="filial__sign-up-undertitle">Запишитесь на персональную экскурсию! Оставьте Ваши контакты, и наши специаоисти свяжутся с Вами.</p>
+        <form id="filialForm" class="filial__form" action="/filial/{{filial.slug}}" method="POST" onsubmit="handleSubmit2(event)">
+        <!-- <form id="sendbookForm" class="senbook__form"> -->
+          {% csrf_token %}
+          <div class="filial__inputs">
+            {{filial_form.name}}
+            {{filial_form.phoneNumber}}
+            {{filial_form.email}}
+          </div>
+          <div id="captcha-container3"></div>
+          <div class="filial__controls">
+            <button type="submit" class="filial__submit" value="Submit">Записаться</button>
+            {{filial_form.policy}}
+            <label for="filial__input-policy" class="filial__policy">
+              <p>Я даю свое согласие на обработку персональных данных. Я ознакомился и принимаю условия Политики конфиденциальности.</p>
+            </label>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -53,9 +81,65 @@
     </div>
   </div>
 </section>
-<div class="filial__popup">
-  <h2 class="filial__name">{{filial.name}}</h2>
-  <p class="filial__city">{{filial.city}}</p>
-  <p class="filial__street">{{filial.street}}</p>
+
+<section>
+  <div class="wrapper">
+    <div class="team">
+      <h2 class="team__title">Команда филиала</h2>
+      <div class="team__undertitle">
+        <p>Выберите любой удобный центр для посещения!</br>Наши преподаватели - опытные профессионалы, которые помогут вашему ребенку раскрыть свой потенциал и достичь новых высот. Приглашаем вас присоединиться к нам и открыть для вашего ребенка новые возможности!</p>
+      </div>
+      <div class="team__items">
+        {% for item in filial_team %}
+        <div class="team__item">
+          <div class="team__image">
+            <img src="{{item.image.url}}" alt="{{item.image.url}}">
+          </div>    
+          <div class="team__description">
+            <div class="team__info">
+              <p class="team__lastname">{{item.lastname}}</p>
+              <p class="team__firstname">{{item.firstname}}</p>
+              <p class="team__status">{{item.status}},</p>
+              <p class="team__expirience">{{item.expirience}}</p>
+            </div>
+            <button data-id="{{item.id}}" class="team__more team__more-button">Подробнее</button>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="detailed" id="detailedPopup">
+  <div class="detailed__wrapper">
+    <div class="detailed__header">
+      <button class="detailed__close" id="detailed__close">
+        <img src="{% static 'img/close.svg'%}" alt="close.svg">
+      </button>
+      <div class="detailed__image">
+        <img class="detailed__image-file" src="" alt="">
+      </div>    
+      <div class="detailed__info">
+        <p class="detailed__lastname"></p>
+        <p class="detailed__firstname"></p>
+        <p class="detailed__status"></p>
+        <p class="detailed__quote"></p>
+      </div>
+    </div>
+    <div class="detailed__body">
+      <p class="detailed__description"></p>
+      <p class="detailed__сall-to-action"></p>
+    </div>
+  </div>
 </div>
+
 {% endblock content %}
+{% block scripts %}
+<script src="{% static 'js/teamFilialModal.js' %}"></script>
+<script type="text/javascript">
+  const lightbox = GLightbox({
+    selector: '.glightbox'
+  });
+</script>
+{% endblock scripts %}

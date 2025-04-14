@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
 from django.core.mail import EmailMessage
+from django.http import JsonResponse
+from django.core import serializers
 
-from .forms import UserForm, ReviewForm, checkCaptcha, BookForm
+import json
+from .forms import UserForm, ReviewForm, checkCaptcha, BookForm, ExcursionFilialForm
 from .models import MainBlock, WelcomeBlock, Advantages, Performance, PerformanceItems, Memo, FAQ, News, Reviews, DocumentsPage, Filials, FilialsNews, FilialsTeam, EmailSettings
 
 
@@ -38,7 +41,6 @@ def index(request):
 def sendBook(request):
     if request.method == 'POST':
         form = BookForm(request.POST)
-        print(request.POST)
         if form.is_valid():
             if checkCaptcha(request, 'sendBook'):
                 bookSend = form.save(commit=False)
@@ -72,9 +74,34 @@ def bashaeva(request):
     return render(request, 'main/about.html', context)
 
 def filial(request, filial_slug):
+    if request.method == 'POST':
+        form = ExcursionFilialForm(request.POST)
+        if form.is_valid():
+            if checkCaptcha(request, 'excursionFilial'):
+                excursionFilial = form.save(commit=False)
+                excursionFilial.filial = Filials.objects.filter(slug=filial_slug)[0]
+                excursionFilial.save()
+            else:
+                print("Robot")
+        else:
+            print('Form invalid')
+    
     filialId = Filials.objects.filter(slug=filial_slug)[0].id
     context = {
         'filial': Filials.objects.filter(slug=filial_slug)[0],
-        'filial_news': FilialsNews.objects.filter(filials_id=filialId)
+        'filial_news': FilialsNews.objects.filter(filials_id=filialId),
+        'filial_team': FilialsTeam.objects.filter(filials_id=filialId),
+        'filial_form': ExcursionFilialForm(),
     }
     return render(request, 'main/filial.html', context)
+
+def teamFilial(request):
+    # print( json.loads(request.body)['teamId'])
+    teamId = json.loads(request.body)['teamId']
+    teamFilial = FilialsTeam.objects.filter(pk=teamId)
+    # context = json.dumps(list(teamFilial), cls=DjangoJSONEncoder)
+    context = serializers.serialize('json', teamFilial)
+    # context = {
+    #     'teamFilial': FilialsTeam.objects.get(pk=teamId),
+    # }
+    return JsonResponse(context, safe=False)

@@ -50,7 +50,6 @@
       <h2 class="sendbook__title">Как подготовить ребенка к детскому саду?</h2>
       <p class="sendbook__undertitle">Заполните форму и получите на почту бесплатное пособие для родителей по адаптации в детском саду</p>
       <form id="sendbookForm" class="senbook__form" action="/sendbook" method="POST" onsubmit="handleSubmit(event)">
-      <!-- <form id="sendbookForm" class="senbook__form"> -->
         {% csrf_token %}
         <div class="sendbook__inputs">
           {{sendBookForm.name}}
@@ -134,7 +133,8 @@
         {{ performance.title }}
       </h2>
       <div class="performance__description">
-        <a data-fslightbox="gallery2" href="{{ performance.video.url }}">
+        <!-- TODO: переверстать этот блок в человеческую верстку -->
+        <a class="glightbox" href="{{ performance.video.url }}">
           <div class="performance__video">
             <video
               id="performance__videoplayer"
@@ -384,3 +384,10 @@
   </div>
 </div>
 {% endblock content %}
+{% block scripts %}
+<script type="text/javascript">
+  const lightbox = GLightbox({
+    selector: '.glightbox'
+  });
+</script>
+{% endblock scripts %}

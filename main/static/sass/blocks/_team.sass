@@ -1,0 +1,67 @@
+.team
+    margin-bottom: 186px
+    &__title
+        font-family: 'Marvin', sans-serif
+        text-transform: uppercase
+        text-align: center
+        margin-bottom: 10px
+        @include font-styles(50px, 400, normal, 0, $green)
+    &__undertitle
+        display: flex
+        justify-content: center  
+        margin-bottom: 41px
+        p
+            text-align: center
+            max-width: 938px
+            @include font-styles(20px, 300, normal, 0, $dark)
+    &__items
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+        grid-template-rows: repeat(2, 1fr)
+        column-gap: 22px
+        row-gap: 31px
+    &__item
+        border-radius: 30px
+        padding: 18px 16px
+        display: flex
+        gap: 15px
+        &:nth-child(4n+1)
+            background-color: $blue
+        &:nth-child(4n+2)
+            background-color: $green
+        &:nth-child(4n+3)
+            background-color: $pink
+        &:nth-child(4n+4)
+            background-color: $yellow
+    &__image
+        max-width: 146px
+        max-height: 184px
+        height: 100%
+        width: 100%
+        img
+            height: 100%
+            width: 100%
+            object-fit: cover
+            border-radius: 30px
+    &__description
+        padding: 15px 0
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+    &__lastname, &__firstname
+        @include font-styles(20px, 600, normal, 0, $dark)
+    &__firstname
+        margin-bottom: 10px
+    &__status, &__expirience
+        @include font-styles(17px, 300, normal, 0, $dark)
+    &__more
+        max-width: 145px
+        background-color: $white
+        border: 2px solid $green
+        border-radius: 100px
+        padding: 10px 30px
+        @include font-styles(17px, 300, normal, 0, $dark)
+        @include fast-transition
+        &:hover
+            background-color: $green
+

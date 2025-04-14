@@ -144,16 +144,7 @@
     </footer>
 
 
-    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
-    <script type="text/javascript">
-      const lightbox = GLightbox({
-        selector: '.glightbox'
-      });
-      const lightbox2 = GLightbox({
-        selector: '.glightbox2'
-      });
-    </script>
-    
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>    
     <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.9/swiper-bundle.min.js"></script>
     <script src="{% static 'js/captcha.js' %}"></script>
     <script src="{% static 'js/swiper.js' %}"></script>
@@ -161,5 +152,7 @@
     <script src="{% static 'js/videoplayer.js' %}"></script>
     <script src="{% static 'js/activeHeader.js' %}"></script>
     <script src="{% static 'js/popup.js' %}"></script>
+    {% block scripts %}
+    {% endblock scripts %}
   </body>
 </html>

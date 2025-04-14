@@ -16,6 +16,7 @@ class Filials(models.Model):
     count_child = models.CharField(verbose_name='До скольки детей идет набор', max_length=100)
     new = models.BooleanField(verbose_name='Статус нового', default=False, null=True, blank=True)
     poster = models.ImageField(verbose_name='Превью видео', upload_to=path_filial_video, validators=[FileExtensionValidator(allowed_extensions=('png', 'jpg', 'webp', 'jpeg', 'gif'))], default='')
+    video = models.FileField(verbose_name='Видео', upload_to=path_filial_video, validators=[FileExtensionValidator(allowed_extensions=('MOV','avi','mp4','webm','mkv'))])
 
     class Meta:
         verbose_name_plural = "Филиалы"
@@ -197,6 +198,20 @@ class BookSend(models.Model):
     
     class Meta:
         verbose_name_plural = "Отправленния пособия для адаптации"
+
+    def __str__(self):
+        return self.name
+    
+class ExcursionFilial(models.Model):
+    name = models.CharField(verbose_name='Имя', max_length=70)
+    phoneNumber = models.CharField(verbose_name='Телефон', max_length=25)
+    email = models.CharField(verbose_name='E-mail', max_length=100)
+    policy = models.BooleanField(verbose_name='Согласие на обработку персональных данных', default=False)
+    filial = models.ForeignKey(Filials, on_delete = models.DO_NOTHING)
+    send_at = models.DateTimeField(verbose_name='Дата отправления', auto_now_add=True, null=True)
+    
+    class Meta:
+        verbose_name_plural = "Запись на экскурсию"
 
     def __str__(self):
         return self.name
