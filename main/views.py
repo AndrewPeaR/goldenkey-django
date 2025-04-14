@@ -81,13 +81,15 @@ def filial(request, filial_slug):
             if checkCaptcha(request, 'excursionFilial'):
                 excursionFilial = form.save(commit=False)
                 excursionFilial.filial = Filials.objects.filter(slug=filial_slug)[0]
+                print(excursionFilial)
                 excursionFilial.save()
                 if 'excursionForm' in request.POST:
                     return redirect('/')
             else:
                 print("Robot")
         else:
-            print('Form invalid')
+            print(form)
+            print('>>>>> Form invalid')
     
     filialId = Filials.objects.filter(slug=filial_slug)[0].id
     context = {

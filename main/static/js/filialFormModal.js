@@ -1,17 +1,17 @@
 const excursionForm = document.querySelector("#excursionForm");
 
-function openTeamFilialModal(slug) {
+function openFilialModal(slug) {
   excursionForm.classList.add("excursion-form_open");
     excursionForm.addEventListener("click", (e) => {
     const isClickInside = !!event.target.closest(".excursion-form__wrapper");
     if (!isClickInside) {
-      closeTeamFilialModal();
+      closeFilialModal();
     }
   });
-  document.forms.excursionForm.action = `/filial/${slug}`
+  document.forms.filialForm.action = `/filial/${slug}`
 }
 
-function closeTeamFilialModal(){
+function closeFilialModal(){
     excursionForm.classList.remove('excursion-form_open')
     excursionForm.action = `/filial/`
     // excursionForm.querySelector('#excursion-form__close').removeEventListener('click')

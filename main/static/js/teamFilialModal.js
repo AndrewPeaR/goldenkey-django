@@ -13,7 +13,7 @@ function getCookie(name) {
 
 function closeTeamFilialModal(){
     detailedPopup.classList.remove('detailed_open')
-    detailedPopup.querySelector('#detailed__close').removeEventListener('click')
+    detailedPopup.querySelector('#detailed__close').removeEventListener('click', null)
     detailedPopup.removeEventListener('click', null)
 }
 
