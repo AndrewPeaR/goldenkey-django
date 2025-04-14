@@ -1,0 +1,53 @@
+.excursion-form
+    position: fixed
+    z-index: -99
+    opacity: 0
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background-color: rgba(0, 0, 0, 0.25)
+    @include fast-transition
+    &_open
+        z-index: 99
+        opacity: 1
+    &__wrapper
+        box-sizing: content-box
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        padding: 43px 48px 57px
+        background-color: $background-body
+        border-radius: 30px
+    &__title
+        margin-bottom: 33px
+        @include font-styles(30px, 600, normal, 0, $dark)
+    &__inputs, &__controls
+        display: flex
+        flex-direction: column
+        align-items: center
+    &__inputs
+        .filial__input
+            max-width: unset
+            width: 100%
+            margin-bottom: 20px
+            border-color: $pink
+    &__controls
+        align-items: unset
+        .filial__checkbox
+            opacity: 0
+            position: absolute
+            z-index: -9999 
+        .filial__policy
+            margin-top: 5px
+            margin-bottom: 45px
+            &::before
+                border-color: $pink
+        .filial__checkbox:checked ~ .filial__policy::before
+            background-color: $pink
+        .filial__submit
+            display: flex
+            justify-content: center
+            background-color: $pink
+            

@@ -1,8 +1,10 @@
 const sendBookForm = document.getElementById("sendbookForm");
 const excursionFilialForm = document.getElementById("filialForm");
+// const excursionForm = document.getElementById("excursionForm");
 
 let inviseCaptcha;
 let inviseCaptcha2;
+let inviseCaptcha3;
 
 function onloadFunction() {
   if (!window.smartCaptcha) {
@@ -19,19 +21,25 @@ function onloadFunction() {
       callback: callback,
       hideShield: true,
     });
-  } else if (window.location.pathname.split("/")[1] === "filial") {
-    inviseCaptcha2 = window.smartCaptcha.render("captcha-container3", {
-      sitekey: "ysc1_a2GwqWPD6T6xZL2mdb1XpU7Q8yOCiDq8oPtiXfLB9cac16db",
-      invisible: true, // Сделать капчу невидимой
-      callback: excursionFilialFormCallback,
-      hideShield: true,
-    });
+    // inviseCaptcha3 = window.smartCaptcha.render("captcha-container4", {
+    //   sitekey: "ysc1_UNNfhpOn0UYGvXQL0ucPgdDmGpYTi0fY4h5oWxdUce4f0a15",
+    //   invisible: true, // Сделать капчу невидимой
+    //   callback: excursionFormCallback,
+    //   hideShield: true,
+    // });
   }
+  inviseCaptcha2 = window.smartCaptcha.render("captcha-container3", {
+    sitekey: "ysc1_a2GwqWPD6T6xZL2mdb1XpU7Q8yOCiDq8oPtiXfLB9cac16db",
+    invisible: true, // Сделать капчу невидимой
+    callback: excursionFilialFormCallback,
+    hideShield: true,
+  });
 }
 
 function callback(token) {
   sendBookForm.submit();
 }
+
 function excursionFilialFormCallback(token) {
   excursionFilialForm.submit();
 }

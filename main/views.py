@@ -35,6 +35,7 @@ def index(request):
         'form': UserForm(),
         'reviewForm': ReviewForm(),
         'sendBookForm': BookForm(),
+        'filial_form': ExcursionFilialForm(),
     }
     return render(request, 'main/index.html', context)
 
@@ -81,6 +82,8 @@ def filial(request, filial_slug):
                 excursionFilial = form.save(commit=False)
                 excursionFilial.filial = Filials.objects.filter(slug=filial_slug)[0]
                 excursionFilial.save()
+                if 'excursionForm' in request.POST:
+                    return redirect('/')
             else:
                 print("Robot")
         else:
@@ -104,4 +107,10 @@ def teamFilial(request):
     # context = {
     #     'teamFilial': FilialsTeam.objects.get(pk=teamId),
     # }
+    return JsonResponse(context, safe=False)
+
+def review(request):
+    reviewId = json.loads(request.body)['reviewId']
+    review = Reviews.objects.filter(pk=reviewId)
+    context = serializers.serialize('json', review)
     return JsonResponse(context, safe=False)

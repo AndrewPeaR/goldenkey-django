@@ -36,7 +36,7 @@
       <div class="filial__sign-up">
         <h2 class="filial__sign-up-title">Идет набор в группы 5-7 лет!</h2>
         <p class="filial__sign-up-undertitle">Запишитесь на персональную экскурсию! Оставьте Ваши контакты, и наши специаоисти свяжутся с Вами.</p>
-        <form id="filialForm" class="filial__form" action="/filial/{{filial.slug}}" method="POST" onsubmit="handleSubmit2(event)">
+        <form id="filialForm" name="filialForm" class="filial__form" action="/filial/{{filial.slug}}" method="POST" onsubmit="handleSubmit2(event)">
         <!-- <form id="sendbookForm" class="senbook__form"> -->
           {% csrf_token %}
           <div class="filial__inputs">

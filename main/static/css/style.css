@@ -566,6 +566,9 @@ html {
 }
 .filials__item {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   z-index: 10;
   max-width: 404px;
   width: 100%;
@@ -1337,41 +1340,52 @@ html {
   right: 33%;
 }
 .reviews__cards .swiper-wrapper {
-  padding-top: 60px;
+  padding: 60px 0 15px;
 }
 .reviews__card {
   position: relative;
   width: 411px;
 }
 .reviews__card .reviews__content {
-  border-radius: 20px;
+  position: relative;
+  border-radius: 23px;
   border-top-right-radius: 13px;
-  height: 150px;
-  padding: 19px 13px;
-  mask: url("../img/clip.svg"), linear-gradient(#fff, #fff);
-  mask-composite: exclude;
-  mask-position: top right;
-  mask-repeat: no-repeat;
+  height: 174px;
+  padding: 34px 13px 0 20px;
+  transition: all 0.2s ease-out;
+}
+.reviews__card .reviews__content:hover {
+  cursor: pointer;
+  box-shadow: 0px 20px 7px -9px rgba(34, 60, 80, 0.2);
+}
+.reviews__card .reviews__content::before {
+  content: url(../img/reviews-border.svg);
+  position: absolute;
+  inset: 0;
 }
 .reviews__card .reviews__content .reviews__name {
   text-transform: uppercase;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: normal;
   letter-spacing: 0;
-  color: #F9F6EE;
+  color: #90C6F3;
 }
 .reviews__card .reviews__content .reviews__child {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 17px;
+  font-weight: 300;
   line-height: normal;
   letter-spacing: 0;
-  color: #F9F6EE;
+  color: rgba(42, 42, 42, 0.5);
   margin-bottom: 10px;
 }
 .reviews__card .reviews__content .reviews__text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   font-size: 15px;
-  font-weight: 200;
+  font-weight: 300;
   line-height: normal;
   letter-spacing: 0;
   color: #2A2A2A;
@@ -1385,7 +1399,7 @@ html {
   border-radius: 100%;
   position: absolute;
   z-index: 3;
-  right: 33px;
+  right: 30px;
   top: -57px;
 }
 .reviews__card .reviews__video video {
@@ -1394,18 +1408,6 @@ html {
 .reviews__card .reviews__image {
   height: 100%;
   max-width: unset;
-}
-.reviews .swiper-slide:nth-child(4n+1) .reviews__content {
-  background-color: #BEE173;
-}
-.reviews .swiper-slide:nth-child(4n+2) .reviews__content {
-  background-color: #FF9DBA;
-}
-.reviews .swiper-slide:nth-child(4n+3) .reviews__content {
-  background-color: #90C6F3;
-}
-.reviews .swiper-slide:nth-child(4n+4) .reviews__content {
-  background-color: #FBE574;
 }
 .reviews__controls {
   margin-top: 50px;
@@ -1797,6 +1799,74 @@ html {
   color: #F9F6EE;
 }
 
+.excursion-form {
+  position: fixed;
+  z-index: -99;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease-out;
+}
+.excursion-form_open {
+  z-index: 99;
+  opacity: 1;
+}
+.excursion-form__wrapper {
+  box-sizing: content-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 43px 48px 57px;
+  background-color: #F9F6EE;
+  border-radius: 30px;
+}
+.excursion-form__title {
+  margin-bottom: 33px;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0;
+  color: #2A2A2A;
+}
+.excursion-form__inputs, .excursion-form__controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.excursion-form__inputs .filial__input {
+  max-width: unset;
+  width: 100%;
+  margin-bottom: 20px;
+  border-color: #FF9DBA;
+}
+.excursion-form__controls {
+  align-items: unset;
+}
+.excursion-form__controls .filial__checkbox {
+  opacity: 0;
+  position: absolute;
+  z-index: -9999;
+}
+.excursion-form__controls .filial__policy {
+  margin-top: 5px;
+  margin-bottom: 45px;
+}
+.excursion-form__controls .filial__policy::before {
+  border-color: #FF9DBA;
+}
+.excursion-form__controls .filial__checkbox:checked ~ .filial__policy::before {
+  background-color: #FF9DBA;
+}
+.excursion-form__controls .filial__submit {
+  display: flex;
+  justify-content: center;
+  background-color: #FF9DBA;
+}
+
 .popup {
   position: fixed;
   top: 0;
@@ -1920,6 +1990,78 @@ html {
   width: 15px;
   height: 15px;
   transform: scale(2.5);
+}
+
+.review {
+  position: fixed;
+  z-index: -99;
+  opacity: 0;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease-out;
+}
+.review_open {
+  z-index: 99;
+  opacity: 1;
+}
+.review__wrapper {
+  box-sizing: content-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 42px 49px 52px 41px;
+  background-color: #F9F6EE;
+  border-radius: 30px;
+  max-width: 857px;
+  width: 100%;
+}
+.review__header {
+  position: relative;
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  margin-bottom: 23px;
+}
+.review__header::after {
+  position: absolute;
+  transform: rotate(-135deg) scale(1.4);
+  content: url("../img/skrepka.svg");
+  top: 20px;
+  right: 20px;
+}
+.review__content {
+  width: 107px;
+  height: 107px;
+}
+.review__content img {
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  object-fit: cover;
+}
+.review__name {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0;
+  color: #90C6F3;
+}
+.review__parent {
+  font-size: 17px;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 0;
+  color: rgba(42, 42, 42, 0.5);
+}
+.review__text {
+  white-space: pre-wrap;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 0;
+  color: #2A2A2A;
 }
 
 .footer-bg {

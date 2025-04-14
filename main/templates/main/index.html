@@ -87,6 +87,7 @@
           {% if filial.new %}
           <div class="filials__new">New</div>
           {% endif %}
+          <div>
           <h3 class="filials__name">{{ filial.name }}</h3>
           <div class="filials__address">
             <p class="filials__city">
@@ -96,8 +97,9 @@
               {{ filial.street }}
             </p>
           </div>
+        </div>
           <div class="filials__action">
-            <button class="filials__contacts">Записаться</button>
+            <button data-slug="{{filial.slug}}" onclick="openTeamFilialModal('{{filial.slug | escapejs }}')" class="filials__contacts">Записаться</button>
             <a href="filial/{{ filial.slug }}" class="filials__more">Подробнее</a>
           </div>
         </div>
@@ -341,7 +343,7 @@
                       <img class="reviews__image" src="{{ item.fileUrl.url }}" alt="clickOnPhoto">
                     {% endif %}
                   </a>
-                  <div class="reviews__content">
+                  <div class="reviews__content" data-reviewId="{{ item.id }}">
                     <h3 class="reviews__name">{{ item.name }}</h3>
                     <p class="reviews__child">{{ item.parent }}, {{ item.childAge }}</p>
                     <p class="reviews__text">
@@ -366,14 +368,54 @@
           <img src="{% static 'img/arrow.svg' %}" alt="arrow-next" />
         </div>
       </div>
-      <div class="center">
+      <!-- <div class="center">
         <button id="sendReview" class="btn">Оставить отзыв</button>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>
 
-<div class="popup" id="sendReviewPopup">
+<div class="excursion-form" id="excursionForm">
+  <div class="excursion-form__wrapper">
+    <h2 class="excursion-form__title">Записаться на экскурсию</h2>
+    <form id="filialForm" class="filial__form" action="#" method="POST" onsubmit="handleSubmit2(event)">
+        {% csrf_token %}
+        <div class="excursion-form__inputs">
+          {{filial_form.name}}
+          {{filial_form.phoneNumber}}
+          {{filial_form.email}}
+          <input type="hidden" name="excursionForm" value="">
+        </div>
+        <div id="captcha-container3"></div>
+        <div class="excursion-form__controls">
+          {{filial_form.policy}}
+          <label for="filial__input-policy" class="filial__policy">
+            <p>Я даю свое согласие на обработку персональных данных. Я ознакомился и принимаю условия Политики конфиденциальности.</p>
+          </label>
+          <div class="center">
+            <button type="submit" class="filial__submit" value="Submit">Записаться</button>
+          </div>
+        </div>
+      </form>
+  </div>
+</div>
+
+<div class="review" id="reviewPopup">
+  <div class="review__wrapper">
+    <div class="review__header">
+      <a href="#" class="review__content glighbox2">
+        <img class="review__content-file" src="{% static 'img/advantages1.png' %}" alt="clickOnPhoto">
+      </a>
+      <div class="review__info">
+        <p class="review__name"></p>
+        <p class="review__parent"></p>
+      </div>
+    </div>
+    <p class="review__text"></p>
+  </div>
+</div>
+
+<!-- <div class="popup" id="sendReviewPopup">
   <div class="popup__wrapper">
     <button id="sendReviewClose">ЗАКРЫТЬ</button>
     <form action="">
@@ -382,12 +424,16 @@
       <button type="submit">Отправить</button>
     </form>
   </div>
-</div>
+</div> -->
 {% endblock content %}
 {% block scripts %}
+<script src="{% static 'js/filialFormModal.js' %}"></script>
+<script src="{% static 'js/reviewModal.js' %}"></script>
 <script type="text/javascript">
   const lightbox = GLightbox({
     selector: '.glightbox'
   });
+  
 </script>
+
 {% endblock scripts %}

@@ -14,7 +14,7 @@ function getCookie(name) {
 function closeTeamFilialModal(){
     detailedPopup.classList.remove('detailed_open')
     detailedPopup.querySelector('#detailed__close').removeEventListener('click')
-    detailedPopup.removeEventListener('click')
+    detailedPopup.removeEventListener('click', null)
 }
 
 async function openTeamFilialModal(teamId) {
@@ -57,14 +57,3 @@ document.querySelectorAll(".team__more-button").forEach((item) => {
       openTeamFilialModal(item.getAttribute("data-id"));
     });
   });
-
-
-// const buttonClose = document.querySelector('#sendReviewClose')
-
-// button.addEventListener('click', () => {
-//     sendReviewPopup.classList.add('popup_open')
-// });
-
-// buttonClose.addEventListener('click', () => {
-//     sendReviewPopup.classList.remove('popup_open')
-// });

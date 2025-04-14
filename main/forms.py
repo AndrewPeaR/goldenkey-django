@@ -65,6 +65,8 @@ def checkCaptcha(request, type):
             secret=os.getenv('KEY_HIDE')
         case 'excursionFilial':
             secret=os.getenv('FILIAL_FORM_KEY')
+        # case 'excursionForm':
+        #     secret=os.getenv('EXCURSION_FORM_KEY')
     
     resp = requests.post(
        "https://smartcaptcha.yandexcloud.net/validate",
