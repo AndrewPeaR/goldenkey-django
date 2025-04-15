@@ -25,6 +25,12 @@
 
     &__card
         max-width: 406px
+        border-radius: 20px
+        @include fast-transition
+        &:hover
+            cursor: pointer
+            background-color: $white
+            
         .news__card-img
             height: 222px
             margin-bottom: 25px
@@ -35,11 +41,53 @@
                 width: 100%
                 object-fit: cover
                 object-position: center
+        &-info
+            padding: 0 15px 15px 15px
         &-title
             margin-bottom: 10px
             @include font-styles(20px, 600, normal, 0, $dark)
         &-text
             hyphens: auto
-            white-space: pre-line
+            white-space: pre-wrap
+            display: -webkit-box
+            -webkit-line-clamp: 3
+            -webkit-box-orient: vertical
+            overflow: hidden
             @include font-styles(20px, 200, normal, 0, $dark)
 
+.news-modal
+    position: fixed
+    z-index: -99
+    opacity: 0
+    inset: 0
+    background-color: rgba(0, 0, 0, 0.25)
+    @include fast-transition
+    &_open
+        z-index: 99
+        opacity: 1
+    &__wrapper
+        box-sizing: content-box
+        position: absolute
+        max-width: 50%
+        width: 100%
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        padding: 43px 48px 57px
+        background-color: $background-body
+        border-radius: 30px
+    &__image
+        margin-bottom: 33px
+        height: 300px
+        overflow: hidden
+        img
+            height: 100%
+            width: 100%
+            object-fit: cover
+            object-position: center
+    &__title
+        margin-bottom: 33px
+        @include font-styles(30px, 600, normal, 0, $dark)
+    &__text
+        white-space: pre-wrap
+        @include font-styles(20px, 300, normal, 0, $dark)

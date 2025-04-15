@@ -282,7 +282,7 @@
             <!-- Slides -->
             {% for item in news %}
             <div class="swiper-slide">
-              <div class="news__card">
+              <div class="news__card" data-newsId="{{item.id}}">
                 <div class="news__card-img">
                   <img
                     src="{{ item.image.url }}"
@@ -415,6 +415,20 @@
   </div>
 </div>
 
+<div class="news-modal" id="newsModal">
+  <div class="news-modal__wrapper">
+    <div class="news-modal__image">
+      <img class="news-modal__image-file" src="{% static './img/advantages1.png' %}" alt="" class="news-modal__file">
+    </div>
+    <div class="news-modal__content">
+      <h2 class="news-modal__title">Title</h2>
+      <p class="news-modal__text">
+
+      </p>
+    </div>
+  </div>
+</div>
+
 <!-- <div class="popup" id="sendReviewPopup">
   <div class="popup__wrapper">
     <button id="sendReviewClose">ЗАКРЫТЬ</button>
@@ -429,6 +443,7 @@
 {% block scripts %}
 <script src="{% static 'js/filialFormModal.js' %}"></script>
 <script src="{% static 'js/reviewModal.js' %}"></script>
+<script src="{% static 'js/newsModal.js' %}"></script>
 <script type="text/javascript">
   const lightbox = GLightbox({
     selector: '.glightbox'

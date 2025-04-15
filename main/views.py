@@ -116,3 +116,10 @@ def review(request):
     review = Reviews.objects.filter(pk=reviewId)
     context = serializers.serialize('json', review)
     return JsonResponse(context, safe=False)
+
+def news(request):
+    newsId = json.loads(request.body)['newsId']
+    news = News.objects.filter(pk=newsId)
+    context = serializers.serialize('json', news)
+    return JsonResponse(context, safe=False)
+
