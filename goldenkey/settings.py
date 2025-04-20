@@ -14,6 +14,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 load_dotenv()
 import os
+# import request
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -30,10 +31,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['andrewpear-goldenkey-django-e550.twc1.net', 'localhost', 'andrewpear-goldenkey-django-0615.twc1.net']
 
+# if (request.build_absolute_uri('/') == 'localhost'):
+SECURE_SSL_REDIRECT = True
+
 CSRF_TRUSTED_ORIGINS=["https://andrewpear-goldenkey-django-e550.twc1.net"]
 CSRF_COOKIE_SECURE = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
 
 # Application definition
 
@@ -195,3 +198,4 @@ TINYMCE_DEFAULT_CONFIG = {
 }
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
