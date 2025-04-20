@@ -33,7 +33,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # ALLOWED_HOSTS = ['andrewpear-goldenkey-django-e550.twc1.net', 'localhost', 'andrewpear-goldenkey-django-0615.twc1.net']
 ALLOWED_HOSTS = ['*']
 # if (request.build_absolute_uri('/') == 'localhost'):
-SECURE_SSL_REDIRECT = True
+# SECURE_SSL_REDIRECT = True
 
 CSRF_TRUSTED_ORIGINS=["https://andrewpear-goldenkey-django-e550.twc1.net"]
 CSRF_COOKIE_SECURE = True
