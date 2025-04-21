@@ -4,7 +4,7 @@ from .models import MainBlock, WelcomeBlock, Questions, FAQ, Memo, News, Advanta
 
 @admin.register(DocumentsPage)
 class DocumentsPageAdmin(admin.ModelAdmin):
-    list_display = ("title", )
+    list_display = ("title", "page")
 
 @admin.register(MainBlock)
 class MainBlockAdmin(admin.ModelAdmin):

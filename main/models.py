@@ -60,6 +60,7 @@ class FilialsTeam(models.Model):
 
 class DocumentsPage(models.Model):
     title = models.TextField()
+    isTitle = models.BooleanField(verbose_name='Отображение заголовка', default=True)
     content = HTMLField()
     
     class Pages(models.TextChoices):

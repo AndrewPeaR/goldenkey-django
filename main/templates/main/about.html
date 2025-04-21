@@ -9,7 +9,9 @@
         <ul class="about__items">
         {% for block in docsBlocks %}
         <li class="about__item">
+          {% if block.isTitle %}
           <h3 class="about__docs-title">{{ block.title }}</h3>
+          {% endif %}
           {% autoescape off %}
           {{ block.content }}
           {% endautoescape %}

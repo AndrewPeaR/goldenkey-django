@@ -29,10 +29,10 @@ SECRET_KEY = 'm6cvwnsyi!59_+^32q)=hwrp!z%r24jri5rd==pkwaf*%7b#aa'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
-# ALLOWED_HOSTS = ['andrewpear-goldenkey-django-e550.twc1.net', 'localhost', 'andrewpear-goldenkey-django-0615.twc1.net']
-ALLOWED_HOSTS = ['*']
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_SSL_REDIRECT = True
+ALLOWED_HOSTS = ['andrewpear-goldenkey-django-e550.twc1.net', 'localhost', 'andrewpear-goldenkey-django-0615.twc1.net']
+# ALLOWED_HOSTS = ['*']
 # if (request.build_absolute_uri('/') == 'localhost'):
 
 CSRF_TRUSTED_ORIGINS=["https://andrewpear-goldenkey-django-e550.twc1.net"]
@@ -55,11 +55,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_permissions_policy',
     'main',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'django_permissions_policy.PermissionsPolicyMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -99,6 +101,9 @@ DATABASES = {
     }
 }
 
+PERMISSIONS_POLICY = {
+    "accelerometer": "*",
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

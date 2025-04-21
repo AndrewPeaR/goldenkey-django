@@ -1600,6 +1600,9 @@ html {
   padding-bottom: 32px;
   border-bottom: 1px solid #e1e1e1;
 }
+.about__item strong {
+  font-weight: 600;
+}
 .about__item:last-child {
   border-bottom: none;
 }
@@ -1663,19 +1666,19 @@ html {
 .about__item .about__docs-block {
   max-width: 470px;
 }
-.about__item .about__docs-block ul li {
+.about__item ul li {
   font-size: 17px;
   margin-bottom: 22px;
   position: relative;
   padding-left: 20px;
 }
-.about__item .about__docs-block ul .about__docs-address_pink::before {
+.about__item ul .about__docs-address_pink::before {
   position: absolute;
   content: url(../img/geotag-pink.svg);
   top: 0;
   left: 0;
 }
-.about__item .about__docs-block ul .about__docs-address_blue::before {
+.about__item ul .about__docs-address_blue::before {
   position: absolute;
   content: url(../img/geotag-blue.svg);
   top: 0;

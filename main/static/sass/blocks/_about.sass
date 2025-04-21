@@ -18,6 +18,8 @@
         width: 100%
         padding-bottom: 32px
         border-bottom: 1px solid #e1e1e1
+        strong
+            font-weight: 600
         &:last-child
             border-bottom: none
         .underline
@@ -56,22 +58,22 @@
             gap: 140px
         .about__docs-block
             max-width: 470px
-            ul
-                li
-                    font-size: 17px
-                    margin-bottom: 22px
-                    position: relative
-                    padding-left: 20px
-                .about__docs-address_pink::before
-                    position: absolute
-                    content: url(../img/geotag-pink.svg)
-                    top: 0
-                    left: 0
-                .about__docs-address_blue::before
-                    position: absolute
-                    content: url(../img/geotag-blue.svg)
-                    top: 0
-                    left: 0
+        ul
+            li
+                font-size: 17px
+                margin-bottom: 22px
+                position: relative
+                padding-left: 20px
+            .about__docs-address_pink::before
+                position: absolute
+                content: url(../img/geotag-pink.svg)
+                top: 0
+                left: 0
+            .about__docs-address_blue::before
+                position: absolute
+                content: url(../img/geotag-blue.svg)
+                top: 0
+                left: 0
         .about__docs-item, li
             a
                 display: inline-flex
