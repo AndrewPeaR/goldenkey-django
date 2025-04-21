@@ -123,3 +123,5 @@ def news(request):
     context = serializers.serialize('json', news)
     return JsonResponse(context, safe=False)
 
+# def error(request):
+#     return render(request, '404.html')

@@ -35,9 +35,9 @@ ALLOWED_HOSTS = ['andrewpear-goldenkey-django-e550.twc1.net', 'localhost', 'drut
 # ALLOWED_HOSTS = ['*']
 # if (request.build_absolute_uri('/') == 'localhost'):
 
-CSRF_TRUSTED_ORIGINS=["https://andrewpear-goldenkey-django-e550.twc1.net", "druthuchenin.beget.app"]
+CSRF_TRUSTED_ORIGINS=["https://andrewpear-goldenkey-django-e550.twc1.net", "https://druthuchenin.beget.app"]
 CSRF_COOKIE_SECURE = True
-# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Application definition
 
