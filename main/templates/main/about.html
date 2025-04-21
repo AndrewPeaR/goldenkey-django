@@ -5,7 +5,11 @@
   <div class="wrapper">
     <div class="about">
       <div class="about__info">
-        <h2 class="about__title" id="about">общие сведения об организации</h2>
+        {% if type == 'bashaeva' %}
+          <h2 class="about__title about__title_bashaeva" id="about">Информация о поставщике социальных услуг ИП Башаева Малика Рахмановна</h2>
+          {% elif type == 'goldenkey' %}
+          <h2 class="about__title" id="about">общие сведения об организации</h2>
+        {% endif %}
         <ul class="about__items">
         {% for block in docsBlocks %}
         <li class="about__item">

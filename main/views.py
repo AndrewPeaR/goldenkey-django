@@ -64,13 +64,15 @@ def about(request):
 
 def goldenkey(request):
     context = {
-        'docsBlocks': DocumentsPage.objects.filter(page=DocumentsPage.Pages.GOLDENKEY)
+        'docsBlocks': DocumentsPage.objects.filter(page=DocumentsPage.Pages.GOLDENKEY),
+        'type': 'goldenkey'
     }
     return render(request, 'main/about.html', context)
 
 def bashaeva(request):
     context = {
-        'docsBlocks': DocumentsPage.objects.filter(page=DocumentsPage.Pages.BASHAEVA)
+        'docsBlocks': DocumentsPage.objects.filter(page=DocumentsPage.Pages.BASHAEVA),
+        'type': 'bashaeva'
     }
     return render(request, 'main/about.html', context)
 

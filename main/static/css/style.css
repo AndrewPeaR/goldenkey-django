@@ -1585,6 +1585,9 @@ html {
   letter-spacing: 0;
   color: #FF9DBA;
 }
+.about__info .about__title_bashaeva {
+  max-width: 905px;
+}
 .about__info .about__items {
   display: flex;
   flex-direction: column;
