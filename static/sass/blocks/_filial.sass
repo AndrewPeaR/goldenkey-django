@@ -1,0 +1,175 @@
+.filial
+    &__popup
+        position: fixed
+        width: 100%
+        max-width: 390px
+        z-index: 99
+        bottom: 60px
+        right: 60px
+        background-color: $white
+        padding: 19px 29px
+        border-radius: 20px
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10)
+        .filial__name
+            margin-bottom: 15px
+            @include font-styles(30px, 600, normal, 0, $dark)
+        .filial__city
+            display: flex
+            align-items: center
+            gap: 7px
+            margin-bottom: 10px
+            @include font-styles(20px, 300, normal, 0, $dark)
+            &::before
+                content: ""
+                background-image: url('../img/filial/filial-city.svg')
+                height: 24px
+                width: 24px
+        .filial__street
+            display: flex
+            align-items: center
+            gap: 7px
+            @include font-styles(20px, 300, normal, 0, $dark)
+            &::before
+                content: ""
+                background-image: url('../img/filial/filial-street.svg')
+                background-repeat: no-repeat
+                height: 26px
+                width: 21px
+    &__video
+        position: relative
+        z-index: 1
+        width: 100%
+        height: 480px
+        overflow: hidden
+        border-radius: 20px
+        margin-bottom: 60px
+        .filial__poster
+            width: 100%
+            object-fit: cover
+    &__videoplay
+        position: absolute
+        z-index: 5
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+    &__info
+        display: flex
+        justify-content: center
+        gap: 119px
+        margin-bottom: 82px
+        &-image
+            height: 110px
+            margin-bottom: 15px
+        &-description
+            text-align: center
+    &__news
+        margin-bottom: 118px
+    &__card
+        // max-width: 301px
+        &-img
+            width: 100%
+            height: 211px
+            margin-bottom: 21px
+            img
+                height: 100%
+                object-fit: cover
+                border-radius: 30px
+        &-title
+            margin-bottom: 5px
+            @include font-styles(25px, 600, normal, 0, $dark)
+        &-text
+            @include font-styles(20px, 300, normal, 0, $dark)
+    
+    &__sign-up
+        margin-bottom: 75px
+        border: 6px solid $yellow
+        border-radius: 30px
+        padding: 52px 0 45px 81px
+        background-image: url(../img/filial__form.png)
+        background-size: 34%
+        background-repeat: no-repeat
+        background-position: 96% center
+        &-title
+            position: relative
+            max-width: 332px
+            margin-bottom: 38px
+            @include font-styles(40px, 600, normal, 0, $dark)
+            &::before, &::after
+                position: absolute
+                content: ''
+                background-repeat: no-repeat
+            &::before
+                background-image: url(../img/filial/star-big.svg)
+                top: 40px
+                left: -50px
+                width: 28px
+                height: 26px
+            &::after
+                background-image: url(../img/filial/heart-big.svg)
+                top: -20px
+                right: 60px
+                width: 21px
+                height: 25px
+        &-undertitle
+            position: relative
+            max-width: 426px
+            margin-bottom: 17px
+            @include font-styles(18px, 300, normal, 0, $dark)
+            &::after
+                position: absolute
+                content: ''
+                background-repeat: no-repeat
+                background-image: url(../img/filial/star-big.svg)
+                top: 15px
+                right: -40px
+                width: 28px
+                height: 26px
+    &__inputs
+        display: flex
+        gap: 17px
+        margin-bottom: 26px
+    &__input
+        max-width: 220px
+        border: 1px solid $blue
+        border-radius: 100px
+        padding: 15px 30px
+        &::placeholder
+            color: $blue
+    &__controls
+        position: relative
+        display: flex
+        align-items: center
+        gap: 17px
+        &::before
+            position: absolute
+            content: ''
+            background-repeat: no-repeat
+            background-image: url(../img/filial/heart-small.svg)
+            top: 40px
+            left: -40px
+            width: 17px
+            height: 20px
+    &__submit
+        border-radius: 100px
+        background-color: $blue
+        padding: 15px 40px
+        @include font-styles(20px, 600, normal, 0, $background-body)
+    &__policy
+        display: flex
+        gap: 10px
+        align-items: center
+        @include font-styles(13px, 300, normal, 0, $dark)
+        &::before
+                content: ''
+                width: 20px
+                height: 20px
+                border: 1px solid $blue
+                border-radius: 5px
+        p
+            max-width: 286px
+    .filial__checkbox
+        opacity: 0
+        position: absolute
+        z-index: -9999        
+    .filial__checkbox:checked ~ .filial__policy::before
+        background-color: $blue

@@ -1,0 +1,62 @@
+.sendbook
+    border: 6px solid $pink
+    border-radius: 30px
+    padding: 43px 10px 47px 83px
+    background-image: url(../img/sendbook-bg.png)
+    background-repeat: no-repeat
+    background-position: 96% center 
+    margin-bottom: 111px
+    &__title
+        display: flex
+        align-items: center
+        gap: 17px
+        margin-bottom: 12px
+        @include font-styles(25px, 600, normal, 0, $dark)
+        &::after
+            content: ''
+            background-image: url(../img/sendbook-star.svg)
+            width: 27px
+            height: 25px
+    &__undertitle
+        max-width: 426px
+        margin-bottom: 17px
+        @include font-styles(18px, 300, normal, 0, $dark)
+    &__inputs
+        display: flex
+        gap: 17px
+        margin-bottom: 26px
+    &__input
+        max-width: 220px
+        border: 1px solid $pink
+        border-radius: 100px
+        padding: 15px 30px
+        &::placeholder
+            color: $blue
+    &__controls
+        display: flex
+        align-items: center
+        gap: 17px
+    &__submit
+        border-radius: 100px
+        background-color: $pink
+        padding: 15px 40px
+        @include font-styles(20px, 600, normal, 0, $background-body)
+    &__policy
+        display: flex
+        gap: 10px
+        align-items: center
+        @include font-styles(13px, 300, normal, 0, $dark)
+        &::before
+                content: ''
+                width: 20px
+                height: 20px
+                border: 1px solid $pink
+                border-radius: 5px
+        p
+            max-width: 286px
+    .sendbook__checkbox
+        opacity: 0
+        position: absolute
+        z-index: -9999        
+    .sendbook__checkbox:checked ~ .sendbook__policy::before
+        background-color: $pink

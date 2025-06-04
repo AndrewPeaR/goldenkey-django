@@ -1,0 +1,99 @@
+.reviews
+    margin-bottom: 115px
+    &__title
+        position: relative
+        text-align: center
+        text-transform: uppercase
+        @include font-styles(50px, 900, normal, 0, $pink)
+        margin-bottom: 100px
+        &::after
+            position: absolute
+            transform: rotate(-135deg)
+            content: url('../img/skrepka.svg')
+            top: 0
+            right: 33%
+    &__cards
+        .swiper-wrapper
+            // padding-top: 60px
+            padding: 60px 0 15px
+
+    &__card
+        position: relative
+        width: 411px
+        
+        
+        .reviews__content
+            position: relative
+            border-radius: 23px
+            border-top-right-radius: 13px
+            height: 174px
+            padding: 34px 13px 0 20px
+            @include fast-transition
+            &:hover
+                cursor: pointer
+                box-shadow: 0px 20px 7px -9px rgba(34, 60, 80, 0.2)
+            &::before
+                content: url(../img/reviews-border.svg)
+                position: absolute
+                inset: 0
+            .reviews__name
+                text-transform: uppercase
+                @include font-styles(20px, 600, normal, 0, $blue)
+            .reviews__child
+                @include font-styles(17px, 300, normal, 0, rgba(42, 42, 42, 0.5))
+                margin-bottom: 10px
+            .reviews__text
+                display: -webkit-box
+                -webkit-line-clamp: 3
+                -webkit-box-orient: vertical
+                overflow: hidden
+                @include font-styles(15px, 300, normal, 0, $dark)
+        .reviews__video
+            display: flex
+            justify-content: center
+            overflow: hidden
+            width: 107px
+            height: 107px
+            border-radius: 100%
+            position: absolute
+            z-index: 3
+            right: 30px
+            top: -57px
+            video
+                object-fit: cover
+        .reviews__image
+            height: 100%
+            max-width: unset
+    
+    // .swiper-slide:nth-child(4n+1) .reviews__content
+    //     background-color: $green
+    // .swiper-slide:nth-child(4n+2) .reviews__content
+    //     background-color: $pink
+    // .swiper-slide:nth-child(4n+3) .reviews__content
+    //     background-color: $blue
+    // .swiper-slide:nth-child(4n+4) .reviews__content
+    //     background-color: $yellow
+
+    &__controls
+        margin-top: 50px
+        margin-bottom: 35px
+        display: flex
+        justify-content: center
+        align-items: center
+        gap: 18px
+        .reviews__next
+            transform: scale(-1, 1)
+        .reviews__back, .reviews__next
+            cursor: pointer
+.fslightbox-absoluted video[alt='alt']
+    mask-image: radial-gradient(circle, black 49%, rgba(0, 0, 0, 0) 50%)
+    &::-webkit-media-controls
+        opacity: 0
+
+// .gslide.loaded
+    // border-radius: 50%
+    // mask-image: radial-gradient(circle, black 28%, rgba(0, 0, 0, 0) 28%)
+    // & .plyr__controls
+    //     display: none
+    // max-width: 10%
+    // display: none

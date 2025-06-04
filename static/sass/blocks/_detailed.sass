@@ -1,0 +1,65 @@
+.detailed
+    position: fixed
+    z-index: -99
+    opacity: 0
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background-color: rgba(0, 0, 0, 0.25)
+    @include fast-transition
+    &_open
+        z-index: 99
+        opacity: 1
+    &__wrapper
+        box-sizing: content-box
+        min-width: 453px
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        padding: 50px 57px 90px
+        background-color: $background-body
+        border-radius: 30px
+    &__header
+        position: relative
+        display: flex
+        gap: 20px
+    &__image
+        width: 146px
+        height: 184px
+        img
+            height: 100%
+            width: 100%
+            object-fit: cover
+            border-radius: 30px
+    &__header
+        margin-bottom: 20px
+    &__info
+        padding-top: 15px
+    &__lastname, &__firstname
+        @include font-styles(20px, 600, normal, 0, $dark)
+    &__firstname
+        margin-top: 5px
+        margin-bottom: 10px
+    &__status
+        margin-bottom: 16px
+        @include font-styles(17px, 300, normal, 0, $dark)
+    &__quote
+        max-width: 290px
+        @include font-styles(17px, 400, normal, 0, $pink)
+    &__description
+        white-space: pre-wrap
+        max-width: 715px
+        margin-bottom: 20px
+        @include font-styles(20px, 300, normal, 0, $dark)
+    &__сall-to-action
+        white-space: pre-wrap
+        @include font-styles(20px, 600, normal, 0, $dark)
+    &__close
+        position: absolute
+        top: 0
+        right: 0
+        width: 15px
+        height: 15px
+        transform: scale(2.5)
